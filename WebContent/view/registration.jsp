@@ -44,7 +44,7 @@
 		</div>
 		<div class="form-group">
 					<input type="submit" value="Create"  class="btn btn-success" />
-					<a href="/Apartmani/" id="cancel" name="cancel" class="btn btn-success">Cancel</a>
+					<a href="/WebProjekat/" id="cancel" name="cancel" class="btn btn-success">Cancel</a>
 				</div>
 </form>
 		</div>
