@@ -5,8 +5,8 @@ import java.util.Date;
 public class Apartment {
 	
 	public String Type;//Tip (ceo apartman, soba)
-	public String Number_Rooms;//Broj soba
-	public String Number_Guests;//Broj gostiju
+	public int Number_Rooms;//Broj soba
+	public int Number_Guests;//Broj gostiju
 	public String Alocation;//Lokacija
 	public Date Date_for_Rent;//Datumi za izdavanje (zadaju Domacini)
 	public Date Avaliable_by_Date;//Dostupnost po datumima
@@ -18,9 +18,9 @@ public class Apartment {
 	public Date Check_out_time;//Vreme za odjavu (inicijalno 10 AM)
 	public String Active_or_Inactive;//Status (Aktivno ili Neaktivno)
 	public String Amenities;// pogodnosti, Lista sadrzaja apartmana (Amenities)
-	public String listReservation;//Lista rezervacija
+	public String ListReservation;//Lista rezervacija
 	
-	public Apartment(String type, String number_Rooms,String number_Guests,String alocation,
+	public Apartment(String type, int number_Rooms,int number_Guests,String alocation,
 			Date date_for_Rent, Date avaliable_by_Date, String host,String comments_visited ,String pictures,int price_per_night, Date check_in_time ,
 			Date check_out_time, String active_or_Inactive, String amenities ,String listReservation  ) {
 	super();
@@ -38,7 +38,7 @@ public class Apartment {
 	Check_out_time=check_out_time;
 	Active_or_Inactive=active_or_Inactive;
 	Amenities=amenities;
-	listReservation=listReservation;
+	ListReservation=listReservation;
 	}
 	
 	
@@ -49,16 +49,16 @@ public class Apartment {
 	public void setType(String type) {
 		Type = type;
 	}
-	public String getNumber_Rooms() {
+	public int getNumber_Rooms() {
 		return Number_Rooms;
 	}
-	public void setNumber_Rooms(String number_Rooms) {
+	public void setNumber_Rooms(int number_Rooms) {
 		Number_Rooms = number_Rooms;
 	}
-	public String getNumber_Guests() {
+	public int getNumber_Guests() {
 		return Number_Guests;
 	}
-	public void setNumber_Guests(String number_Guests) {
+	public void setNumber_Guests(int number_Guests) {
 		Number_Guests = number_Guests;
 	}
 	public String getAlocation() {
@@ -128,10 +128,10 @@ public class Apartment {
 		Amenities = amenities;
 	}
 	public String getListReservation() {
-		return listReservation;
+		return ListReservation;
 	}
 	public void setListReservation(String listReservation) {
-		this.listReservation = listReservation;
+		ListReservation = listReservation;
 	}
 	
 }
