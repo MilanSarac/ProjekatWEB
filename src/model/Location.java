@@ -3,9 +3,9 @@ package model;
 public class Location {
 
 
-	public String Latitude;
-	public String Longitude;
-	public String Location_Adress;
+	private String Latitude;
+	private String Longitude;
+	private String Location_Adress;
 	
 	
 	public Location (String latitude, String longitude,String location_adress) {

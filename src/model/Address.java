@@ -2,10 +2,10 @@ package model;
 
 public class Address {
 	
-	public String Street;
-	public int Streetnumber;
-	public String Place;
-	public int Zip_post;
+	private String Street;
+	private int Streetnumber;
+	private String Place;
+	private int Zip_post;
 	
 	public Address (String street,int streetnumber,String place, int zip_post ) {
 	 Street = street ;

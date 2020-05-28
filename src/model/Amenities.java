@@ -3,7 +3,7 @@ package model;
 public class Amenities {
 	
 
-	int ID_Amenities;
+	private int ID_Amenities;
 	private String Wifi;
 	private String Tv;
 	private String AirConditioning;

@@ -9,12 +9,12 @@ public class Reservation {
 	private int NumberOfNights;
 	private int TotalPrice;
 	private String MessageReservation;
-	public String Guest;
-	public String CreatedReservation;
-	public String RejectedReservation;
-	public String WithdrawalReservation;
-	public String AcceptedReservation;
-	public String CompletedReservation;
+	private String Guest;
+	private String CreatedReservation;
+	private String RejectedReservation;
+	private String WithdrawalReservation;
+	private String AcceptedReservation;
+	private String CompletedReservation;
 
 
 public Reservation(String isBooked, Date orderDate,int numberOfNights, int totalPrice, String messageReservation,String guest,

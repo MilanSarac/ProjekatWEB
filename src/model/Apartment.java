@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class Apartment {
 	
-	public String Type;//Tip (ceo apartman, soba)
-	public int Number_Rooms;//Broj soba
-	public int Number_Guests;//Broj gostiju
-	public String Alocation;//Lokacija
-	public Date Date_for_Rent;//Datumi za izdavanje (zadaju Domacini)
-	public Date Avaliable_by_Date;//Dostupnost po datumima
-	public String Host;//Domacin
-	public String Comments_visited;//Komentari za apartman koje daju gosti koji su posetili apartman
-	public String Pictures;
-	public int Price_per_night;//Cena po noci
-	public Date Check_in_time;//Vreme za prijavu (inicijalno 2 PM)
-	public Date Check_out_time;//Vreme za odjavu (inicijalno 10 AM)
-	public String Active_or_Inactive;//Status (Aktivno ili Neaktivno)
-	public String Amenities;// pogodnosti, Lista sadrzaja apartmana (Amenities)
-	public String ListReservation;//Lista rezervacija
+	private String Type;//Tip (ceo apartman, soba)
+	private int Number_Rooms;//Broj soba
+	private int Number_Guests;//Broj gostiju
+	private String Alocation;//Lokacija
+	private Date Date_for_Rent;//Datumi za izdavanje (zadaju Domacini)
+	private Date Avaliable_by_Date;//Dostupnost po datumima
+	private String Host;//Domacin
+	private String Comments_visited;//Komentari za apartman koje daju gosti koji su posetili apartman
+	private String Pictures;
+	private int Price_per_night;//Cena po noci
+	private Date Check_in_time;//Vreme za prijavu (inicijalno 2 PM)
+	private Date Check_out_time;//Vreme za odjavu (inicijalno 10 AM)
+	private String Active_or_Inactive;//Status (Aktivno ili Neaktivno)
+	private String Amenities;// pogodnosti, Lista sadrzaja apartmana (Amenities)
+	private String ListReservation;//Lista rezervacija
 	
 	public Apartment(String type, int number_Rooms,int number_Guests,String alocation,
 			Date date_for_Rent, Date avaliable_by_Date, String host,String comments_visited ,String pictures,int price_per_night, Date check_in_time ,
