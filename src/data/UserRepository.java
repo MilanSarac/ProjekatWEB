@@ -21,15 +21,17 @@ public class UserRepository {
 		File file=new File(path);
 		JSONArray allUsers=new JSONArray();
 		allUsers= (JSONArray)GetUsers();
+		
 		JSONObject userObject = new JSONObject();
 		userObject.put("Username", user.getUsername());
 		userObject.put("Name", user.getName());
 		userObject.put("SureName", user.getSureName());
-		//userObject.put("Gender", user.getGenre());
 		userObject.put("Male", user.getMale());
 		userObject.put("Female", user.getFemale());
 		userObject.put("Password", user.getPassword());
 		userObject.put("PasswordControl", user.getPasswordControl());
+		userObject.put("Role", user.getRole());
+		System.out.println(userObject);
 		allUsers.add(userObject);
 		FileWriter file1= new FileWriter(file);
 		file1.write(allUsers.toJSONString());

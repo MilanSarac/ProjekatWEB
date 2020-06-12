@@ -41,8 +41,8 @@ public class RegistrationServlet extends HttpServlet {
 		String PasswordControl= request.getParameter("PasswordControl");
 		String Role=request.getParameter("Role");
 		
-		User user= new User(Username,Name,SureName,Male,Female,Password,PasswordControl,"Domacin"); 
-			
+		User user= new User(Username,Name,SureName,Male,Female, Password,PasswordControl,"Admin"); 
+		//
 			UserRepository us= new UserRepository();
 			us.addUser(user);
 			response.sendRedirect("/WebProjekat/");

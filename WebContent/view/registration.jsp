@@ -27,9 +27,7 @@ body {
   width: 400px;
   height: 100px;  
   padding: 50px;
-
 }
-
 </style>
 <body>
 
@@ -41,19 +39,19 @@ body {
 		<form method="post">
 		<div class ="form-group">
 			<label for = "Username">Username</label>
-			<input type="text" class ="form-control" name = "Username"
-			placeholder=" Enter Username" required>
+			<input type="text" class ="form-control" name ="Username"
+			placeholder=" Enter Username" >
 		</div>
 		
 		<div class ="form-group">
 			<label for = "Name">Name</label>
 			<input type="text" class ="form-control" name = "Name"
-			placeholder= " Enter Name" required>
+			placeholder= " Enter Name" >
 		</div>
 		<div class ="form-group">
 			<label for = "SureName">SureName</label>
 			<input type="text" class ="form-control" name = "SureName"
-			placeholder= " Enter SureName" required>
+			placeholder= " Enter SureName" >
 		</div>
 		
 		<div class ="form-group">
@@ -64,21 +62,28 @@ body {
 				</div>
 		<div class ="form-group">
 			<label for = "Password">Password</label>
-			<input type="password" class ="form-control" name = "Password"
-			placeholder=" Enter Password" required>
+			<input type="password"  id="password"  class ="form-control" name = "Password"
+			placeholder=" Enter Password" >
 		</div>
 			<div class ="form-group">
-			<label for = "PasswordControl">PasswordControl</label>
-			<input type="password" class ="form-control" name = "PasswordControl"
-			placeholder="RE-Enter Password" required>
+			<label for = "PasswordControl">Password Control</label>
+			<input type="password"  id="Cpassword"  class ="form-control" name = "PasswordControl"
+			placeholder="RE-Enter Password" >
 		</div>
-		<div class="form-group">
-					<input type="submit" value="Create"  class="btn" />
+			<div class="form-group">
+					<input type="submit" value="Create" onclick="passwordMatch()"  class="btn" />
 					<a href="/WebProjekat/" id="cancel" name="cancel" class="btn">Cancel</a>
 				</div>
-		</form>
-		</div>
-	</div>
-	
+
+	<script> function passwordMatch(){
+		var text = document.getElementById ("password");
+		var text = document.getElementById ("Cpassword");
+		if(password.value != Cpassword.value) {
+			Cpassword.setCustomValidity("Passwords Don't Match");
+				  } else {
+					  Cpassword.setCustomValidity('');
+				  }
+				}
+	</script>
 </body>
 </html>

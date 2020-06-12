@@ -14,7 +14,7 @@ public class User {
 	private String Male;
 	private String Female;
 
-	public  User(String username, String name, String sureName,String male, String female, 
+	public  User(String username, String name, String sureName,String male,String female, 
 			String password,String passwordControl,String role){
 		super();
 		Username= username;

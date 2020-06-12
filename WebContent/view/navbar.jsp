@@ -29,10 +29,23 @@
 			<%
 					if(session.getAttribute("sesija")==null){
 				%>
-				<%}%>
+				
 				<li class="nav-item">
 					<a class="nav-link" href="registration.jsp">Registracija</a>
 				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="login.jsp">Login</a>
+				</li>
+				<%} else{%>
+				
+					<li class="nav-item">
+					<a class="nav-link" href=""><%=session.getAttribute("sesija") %></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="view/logout.jsp">Logut</a>
+					
+				</li>
+				<%}%>
   </ul>
 		</div>
 	</nav>
