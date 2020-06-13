@@ -30,10 +30,7 @@ body {
 }
 </style>
 <body>
-
 <div class="container">
-
-
 <h1>Registracija korisnika</h1>
   <div class= "col-5">
 		<form method="post">
@@ -42,7 +39,6 @@ body {
 			<input type="text" class ="form-control" name ="Username"
 			placeholder=" Enter Username" >
 		</div>
-		
 		<div class ="form-group">
 			<label for = "Name">Name</label>
 			<input type="text" class ="form-control" name = "Name"
@@ -53,7 +49,6 @@ body {
 			<input type="text" class ="form-control" name = "SureName"
 			placeholder= " Enter SureName" >
 		</div>
-		
 		<div class ="form-group">
 			<input type="radio" id="male" name="Male" value="Male">
 		  <label for="male">Male</label><br>

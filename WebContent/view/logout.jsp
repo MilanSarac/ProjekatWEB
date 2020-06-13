@@ -10,8 +10,9 @@
 <%
 
 	session.invalidate();
-	response.sendRedirect("/WebProjekat/");
-	//response.sendRedirect("/view/login.jsp");
+	//response.sendRedirect("/WebProjekat/");
+	
+	response.sendRedirect("/WebProjekat/login.jsp");
 
 
 %>

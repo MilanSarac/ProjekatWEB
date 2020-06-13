@@ -21,6 +21,11 @@
 <li class="nav-item"><a class="nav-link" href="Spiskapartmani.jsp">SpisakApartmani</a></li>
 
 
+<%}else if (session.getAttribute("role").toString().equals("Domacin")){%>
+
+<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Apartmani1</a></li>
+<%}else if (session.getAttribute("role").toString().equals("Gost")){%>
+<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Apartmani1</a></li>
 <%}%>
 </ul>
 </div>
