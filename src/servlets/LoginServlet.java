@@ -58,13 +58,13 @@ public class LoginServlet extends HttpServlet {
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("sesija", Username);
 				sesion.setAttribute("role",role);
-				response.sendRedirect("/WebProjekat/");
+				response.sendRedirect("/WebProjekat/user.jsp");
 				return;
 			}
 	}
 			request.setAttribute("errorMessage", "greska");
 			RequestDispatcher rd= request.getRequestDispatcher("/view/login.jsp");
-			//rd.forward(request,response);
+			rd.forward(request,response);
 			return;
 	}
 }

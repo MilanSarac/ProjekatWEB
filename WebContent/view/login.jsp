@@ -5,11 +5,11 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap CSS -->
-<link rel= "stylesheet" href="bootstrap/css/bootstrap-grid.css">
+
 <link rel= "stylesheet" href="bootstrap/css/bootstrap.min.css">
+
 </head>
 <style>
-
 .btn{
   background-color: #4CAF50;
   color: white;

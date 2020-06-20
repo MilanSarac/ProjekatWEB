@@ -17,6 +17,7 @@ public class UserRepository {
 	
 	public String path = "C:\\Users\\23\\workspace\\WebProjekat\\WebContent\\data\\users.json";
 	@SuppressWarnings("unchecked")
+	
 	public void addUser(User user)throws IOException{
 		File file=new File(path);
 		JSONArray allUsers=new JSONArray();
@@ -38,8 +39,29 @@ public class UserRepository {
 		file1.flush();
 		file1.close();
 	}
+	@SuppressWarnings("unchecked")
+	public void updateUser(String Name, String SureName,  String Password )throws IOException{
+		File file=new File(path);
+		JSONArray allUsers=new JSONArray();
+		allUsers= (JSONArray)GetUsers();
+		JSONObject userObject = new JSONObject();
+		for(int i=0; i< allUsers.size(); i++) {
+		
+		JSONObject result = (JSONObject) allUsers.get(i);
+		String name= (String)result.get("Name");
+		if(name.equals(Name)) {
+		
+		result.put("Name",Name);
+		result.put("SureName",SureName);
+		result.put("Password", Password);
 
-
+		FileWriter file1= new FileWriter(file);
+		file1.write(allUsers.toJSONString());
+		file1.flush();
+		file1.close();
+	}
+	}
+	}
 	public ArrayList<User> GetUsers() throws IOException {
 		File file= new File(path);
 		FileReader fileReader = new FileReader(file);

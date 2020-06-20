@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import data.UserRepository;
 import model.User;
@@ -41,11 +45,31 @@ public class RegistrationServlet extends HttpServlet {
 		String PasswordControl= request.getParameter("PasswordControl");
 		String Role=request.getParameter("Role");
 		
-		User user= new User(Username,Name,SureName,Male,Female, Password,PasswordControl,"Admin"); 
-		//
-			UserRepository us= new UserRepository();
-			us.addUser(user);
-			response.sendRedirect("/WebProjekat/");
+		JSONArray allUsers=new JSONArray();
+		UserRepository ur= new UserRepository();
+		allUsers=(JSONArray)ur.GetUsers();
+			for(int i=0; i<allUsers.size();i++) {
+				JSONObject result=(JSONObject) allUsers.get(i);
+				String usern=(String) result.get("Username");
+				
+			if(usern.equals(Username)) {
+				response.sendRedirect("/WebProjekat/registration.jsp");
+				
+			}else {
+				User user= new User(Username,Name,SureName,Male,Female, Password,PasswordControl,"Gost"); 
+				
+					UserRepository us= new UserRepository();
+					us.addUser(user);
+					HttpSession sesion=request.getSession();
+					sesion.setAttribute("sesija", Username);
+
+					sesion.setAttribute("role","Gost");
+					response.sendRedirect("/WebProjekat/user.jsp");
+					return;
+			}
+	}
+		
+		
 		
 	}
 }

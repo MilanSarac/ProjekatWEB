@@ -5,7 +5,6 @@
 
 <title>Registation form</title>
 <!-- Bootstrap CSS -->
-<link rel= "stylesheet" href="bootstrap/css/bootstrap-grid.css">
 <link rel= "stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <style>
@@ -52,7 +51,7 @@ body {
 		<div class ="form-group">
 			<input type="radio" id="male" name="Male" value="Male">
 		  <label for="male">Male</label><br>
-		  <input type="radio" id="female" name="Female" value="Female">
+		  <input type="radio" id="female" name="Male" value="Female">
 		  <label for="female">Female</label><br>
 				</div>
 		<div class ="form-group">
