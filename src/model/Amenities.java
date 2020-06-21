@@ -3,7 +3,7 @@ package model;
 public class Amenities {
 	
 
-	private int ID_Amenities;
+	private String ID_Amenities;
 	private String Wifi;
 	private String Tv;
 	private String AirConditioning;
@@ -13,7 +13,7 @@ public class Amenities {
 	private String Iron;
 	private String Washing_machine;
 
-	public Amenities(int iD_Amenities,String wifi, String tv,String airConditioning,
+	public Amenities(String iD_Amenities,String wifi, String tv,String airConditioning,
 			String elevator,String parking,String kitchen,String iron,String washing_machine) {
 	super();
 	ID_Amenities=iD_Amenities;
@@ -27,11 +27,11 @@ public class Amenities {
 	Washing_machine=washing_machine;
 }
 
-	public int getID_Amenities() {
+	public String getID_Amenities() {
 		return ID_Amenities;
 	}
 
-	public void setID_Amenities(int iD_Amenities) {
+	public void setID_Amenities(String  iD_Amenities) {
 		ID_Amenities = iD_Amenities;
 	}
 

@@ -76,6 +76,25 @@ public class UserRepository {
 		}
 		return jsonArray;
 	}
+	public void DeleteUser(String Username) throws IOException {
+		File file = new File(path);
+		JSONArray allUser = new JSONArray();
+		allUser = (JSONArray) GetUsers();
+		for(int i=0;i<allUser.size();i++) {
+			JSONObject result = (JSONObject) allUser.get(i);
+			String username = (String) result.get("Username");
+			if(username.equals(Username)) {
+				result.put("Active", false);
+				
+				FileWriter file1 = new FileWriter(file);
+				file1.write(allUser.toJSONString());
+				file1.flush();
+				file1.close();
+			}
+		}
+	
+	}
 }
+
 
 

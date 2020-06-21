@@ -7,7 +7,7 @@ public class Comment {
 	private String Rating;
 	
 	public Comment (String sender,String referedToApartment,
-			String text,String rating )
+			String rating,String text )
 	{
 		super();
 		Sender=sender;
