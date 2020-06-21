@@ -3,33 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Bootstrap CSS -->
+<meta charset="ISO-8859-1">
 
-<link rel= "stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+	<script src="javascript/jquery-3.4.1.js"></script>
 
+<title>Login</title>
 </head>
-<style>
-.btn{
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 10px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-.container{
-  width: 400px;
-  height: 100px;  
-  padding: 50px;
-}
-</style>
 <body>
 <div class="container">
 <h1>Logovanje Korisnika</h1>
-	 <div class= "col-5">
+	<div class="row justify-content-md-center">
+		<div class="col-8 offset-2">
     	<form method="post">
     	<div class="form-group">
     	 <label for="Username">Username</label>
@@ -42,7 +30,7 @@
     	   placeholder="Enter Password" required>
 	 </div>
      <button type="submit" class="btn btn-success">Submit</button>
-	<a href="/WebProjekat/" id="cancel" name="cancel" class="btn btn-success">Cancel</a>
+	<a href="/WebProjekat/" id="cancel" name="cancel" class="btn btn-secondary">Cancel</a>
 		</div>
 	</form>  
 </div>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -10,8 +10,7 @@
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 	crossorigin="anonymous">
 <script src="javascript/jquery-3.4.1.js"></script>
-
-<title>Korisnicka strana</title>
+<title>Dodavanje Adrese</title>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -19,11 +18,11 @@
 	<BR>
 	<div>
 		<ul class="nav nav-pills">
-			<li class="nav-item"><a class="nav-link  active" href="user.jsp">Korisnicki
+			<li class="nav-item"><a class="nav-link" href="user.jsp">Korisnicki
 					podaci</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Dodavanje
+			<li class="nav-item"><a class="nav-link  " href="location.jsp">Dodavanje
 					Lokacije A</a></li>
-								<li class="nav-item"><a class="nav-link" href="address.jsp">Dodavanje
+			<li class="nav-item"><a class="nav-link  active" href="address.jsp">Dodavanje
 					Adrese</a></li>
 
 			<%
@@ -81,35 +80,43 @@
 
 	<div class="row justify-content-md-center">
 		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />">
+ 
+  
+		<form method="post">
+		
+		<div class ="form-group">
 
-				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
-				</div>
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
-
+			<label for = "Street">Street</label>
+			<input type="text" class ="form-control" name ="Street"
+			placeholder=" Enter Street" >
 		</div>
+		<div class ="form-group">
+			<label for = "Streetnumber">Streetnumber</label>
+			<input type="text" class ="form-control" name = "Streetnumber"
+			placeholder= " Enter Streetnumber" >
+		</div>
+			<div class ="form-group">
+			<label for = "Place">Place</label>
+			<input type="text" class ="form-control" name = "Place"
+			placeholder= " Enter Place" >
+		</div>
+				<div class ="form-group">
+			<label for = "Zip_post">Zip_post</label>
+			<input type="text" class ="form-control" name = "Zip_post"
+			placeholder= " Enter Zip_post" >
+		</div>
+	
+			<button type="submit value="Create"" class="btn btn-success">Submit</button>
+	<a href="/WebProjekat/" id="cancel" name="cancel" class="btn btn-secondary">Cancel</a>
+		</div>
+	</form>  
+</div>
 
-	</div>
 
-
-	<script>
+<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");
 		});
-	</script>
+</script>
 </body>
 </html>

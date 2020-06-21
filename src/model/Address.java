@@ -3,11 +3,12 @@ package model;
 public class Address {
 	
 	private String Street;
-	private int Streetnumber;
+	private String Streetnumber;
 	private String Place;
-	private int Zip_post;
+	private String Zip_post;
 	
-	public Address (String street,int streetnumber,String place, int zip_post ) {
+	public Address (String street,String streetnumber,String place, String zip_post ) {
+		super();
 	 Street = street ;
 	 Streetnumber = streetnumber ;
 	 Place = place;
@@ -22,11 +23,11 @@ public class Address {
 		Street = street;
 	}
 
-	public int getStreetnumber() {
+	public String getStreetnumber() {
 		return Streetnumber;
 	}
 
-	public void setStreetnumber(int streetnumber) {
+	public void setStreetnumber(String streetnumber) {
 		Streetnumber = streetnumber;
 	}
 
@@ -38,11 +39,11 @@ public class Address {
 		Place = place;
 	}
 
-	public int getZip_post() {
+	public String getZip_post() {
 		return Zip_post;
 	}
 
-	public void setZip_post(int zip_post) {
+	public void setZip_post(String zip_post) {
 		Zip_post = zip_post;
 	}
 	

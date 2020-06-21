@@ -4,29 +4,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <script src="javascript/jquery-3.4.1.js"></script>
-<style>
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-</style>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 <div id="navbar"></div>
 	<BR>
 	<BR>
-		
-	<div class="row justify-content-md-center">
-		<div class="col-8">
-			<table style="width: 100%">
+	<div class="container">
+ <table class="table table-dark table-hover">
 				<tr>
 					<th>Ime</th>
 					<th>Prezime</th>
@@ -36,7 +26,7 @@ table, th, td {
 					
 				</tr>
 				<c:forEach var="post" items="${resultArray}" varStatus="statusInner">
-					<tr >
+					<tr class='clickable-row' data-href='url://'>
 						<td> <c:out value="${post.Name}" /> </td>
 						<td> <c:out value="${post.SureName}" /> </td>
 						<td> <c:out value="${post.Username}" /> </td> 						
@@ -44,8 +34,20 @@ table, th, td {
 					</tr>
 				</c:forEach>
 			</table>
+			
 		</div>
 	</div>
+		<script>
+		jQuery(document).ready(function($) {
+
+		    $(".clickable-row").click(function() {
+
+		        window.location = $(this).data("href");
+
+		    });
+
+		});	
+		</script>
 	<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");
