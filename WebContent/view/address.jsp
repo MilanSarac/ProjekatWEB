@@ -31,7 +31,11 @@
 			%>
 
 			<BR>
+<<<<<<< HEAD
 					<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+=======
+			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Modifikacija
 					Apartmana</a></li>
@@ -41,12 +45,15 @@
 					Rezervacija</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
 					svih Komentara</a></li>
+<<<<<<< HEAD
 			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pregled
 					svih Korisnika</a></li>
 			<li class="nav-item"><a class="nav-link" href="amenities.jsp">Dodavanje
 					Sadrzaja</a></li>
 			<li class="nav-item"><a class="nav-link " href="allAmenities.jsp">Pregled
 					svih Sadrzaja</a></li>
+=======
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {

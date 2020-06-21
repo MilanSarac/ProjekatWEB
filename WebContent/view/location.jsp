@@ -18,19 +18,31 @@
 	<BR>
 	<div>
 		<ul class="nav nav-pills">
+<<<<<<< HEAD
 		<li class="nav-item"><a class="nav-link" href="user.jsp">Korisnicki
 					podaci</a></li>
 			<li class="nav-item"><a class="nav-link active" href="location.jsp">Dodavanje
 					Lokacije A</a></li>
 			<li class="nav-item"><a class="nav-link" href="address.jsp">Dodavanje
 					Adrese</a></li>
+=======
+			<li class="nav-item"><a class="nav-link" href="user.jsp">Korisnicki
+					podaci</a></li>
+			<li class="nav-item"><a class="nav-link  active" href="location.jsp">Dodavanje
+					Lokacije A</a></li>
+
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 			<%
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
 
 			<BR>
+<<<<<<< HEAD
 					<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+=======
+			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Modifikacija
 					Apartmana</a></li>
@@ -40,10 +52,13 @@
 					Rezervacija</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
 					svih Komentara</a></li>
+<<<<<<< HEAD
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
 					svih Korisnika</a></li>
 			<li class="nav-item"><a class="nav-link " href="allAmenities.jsp">Pregled
 					svih Sadrzaja</a></li>
+=======
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
@@ -60,7 +75,11 @@
 					Novog Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Pregled
 					Rezervacija Apartmana</a></li>
+<<<<<<< HEAD
 			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
+=======
+			<li class="nav-item"><a class="nav-link" href="location.jsp">Pregled
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 					Komentara Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Preraga</a></li>
 			<%
@@ -83,6 +102,11 @@
 
 	<div class="row justify-content-md-center">
 		<div class="col-8 offset-2">
+<<<<<<< HEAD
+=======
+ 
+  
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 		<form method="post">
 		
 		<div class ="form-group">

@@ -23,7 +23,11 @@
 					podaci</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Dodavanje
 					Lokacije A</a></li>
+<<<<<<< HEAD
 			<li class="nav-item"><a class="nav-link" href="address.jsp">Dodavanje
+=======
+								<li class="nav-item"><a class="nav-link" href="address.jsp">Dodavanje
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 					Adrese</a></li>
 
 			<%
@@ -32,7 +36,11 @@
 			%>
 
 			<BR>
+<<<<<<< HEAD
 					<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+=======
+			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Modifikacija
 					Apartmana</a></li>
@@ -42,12 +50,15 @@
 					Rezervacija</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
 					svih Komentara</a></li>
+<<<<<<< HEAD
 			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pregled
 					svih Korisnika</a></li>
 			<li class="nav-item"><a class="nav-link" href="amenities.jsp">Dodavanje
 					Sadrzaja</a></li>
 			<li class="nav-item"><a class="nav-link " href="allAmenities.jsp">Pregled
 					svih Sadrzaja</a></li>
+=======
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
@@ -78,15 +89,18 @@
 					Rezervacije</a></li>
 			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Ostavljnje
 					Komentara</a></li>
+<<<<<<< HEAD
 		
 				
+=======
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 			<%
 				}
 			%>
 		</ul>
 	</div>
 	<BR>
-	
+
 	<div class="row justify-content-md-center">
 		<div class="col-8 offset-2">
 			<form action="/WebProjekat/updateUser.jsp" method="post">
@@ -105,11 +119,14 @@
 					<label for="login-password">Password</label> <input type="text"
 						class="form-control" name="Password"
 						value="<c:out value="${result.Password}" />">
+<<<<<<< HEAD
 				</div>
 					<div class="form-group">
 					<label for="Role">Role</label> <input type="text"
 						class="form-control" name="Role"
 						value="<c:out value="${result.Role}" />">
+=======
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 				</div>
 
 

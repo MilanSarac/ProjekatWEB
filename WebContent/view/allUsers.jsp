@@ -9,7 +9,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
 <title>Adminov Pregled korisnika</title>
+=======
+<title>Insert title here</title>
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 </head>
 <body>
 	<div id="navbar"></div>
@@ -81,7 +85,10 @@
 		</ul>
 	</div>
 	<BR>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 	<div class="container">
  <table class="table table-dark table-hover">
 				<tr>
@@ -94,7 +101,11 @@
 
 				</tr>
 				<c:forEach var="post" items="${resultArray}" varStatus="statusInner">
+<<<<<<< HEAD
 					<tr class='clickable-row' >
+=======
+					<tr class='clickable-row' data-href='url://'>
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 						<td> <c:out value="${post.Name}" /> </td>
 						<td> <c:out value="${post.SureName}" /> </td>
 						<td> <c:out value="${post.Username}" /> </td> 		
@@ -105,9 +116,24 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
 		</div>
 	</div>
+<<<<<<< HEAD
 <script src="javascript/jquery-3.4.1.js"></script>	
+=======
+		<script>
+		jQuery(document).ready(function($) {
+
+		    $(".clickable-row").click(function() {
+
+		        window.location = $(this).data("href");
+
+		    });
+
+		});	
+		</script>
+>>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
 	<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");
