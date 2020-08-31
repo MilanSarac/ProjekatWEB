@@ -1,17 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+</body>
+</html><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>       
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<script src="javascript/jquery-3.4.1.js"></script>
-
-<title>Korisnicka strana</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<title>Insert title here</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -106,48 +109,74 @@
 			%>
 		</ul>
 	</div>
-	<BR>
-
-	<div class="row justify-content-md-center">
-		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />" readonly="@(true)">
+<div class="container">
+		<table class="table table-dark table-hover">
+				<tr>
+					<th>Tip Apartmana</th>
+					<th>Broj Soba</th>
+					<th>Broj gostiju</th>
+					<th>Datum izdavanja pocetak</th>
+					<th>Datum izdavanja kraj</th>
+					<th>Domacin</th>
+					<th>Cena izdavanja</th>
+					<th>Geo Sirina</th>
+					<th>Geo Duzina</th>
+					<th>Ulica</th>
+					<th>Broj</th>
+					<th>Mesto</th>
+					<th>Postanski broj</th>
+					<th>sadrzaj Apartmana</th>
+			</tr>
+			<c:forEach var="post" items="${resultArray}" varStatus="statusInner">
+		<!-- 	<tr class="clickable-row" data-href="/WebProjekat/apartmanView.jsp?name=<c:out value="${post.apartmentObject.Type}" />">
+				<tr class='clickable-row'>
+				<tr class='clickable-row' data-href='url://'>
+				<!--  	<td><c:out value="${post.ID_Amenities}" /></td>	-->
+				
+			
+					<td><c:out value="${post.apartmentObject.Type}" /></td>
+					<td><c:out value="${post.apartmentObject.Number_Rooms}" /></td>
+					<td><c:out value="${post.apartmentObject.Number_Guests}" /></td>
+					<td><c:out value="${post.apartmentObject.Date_for_Rent_Start}" /></td>
+					<td><c:out value="${post.apartmentObject.Date_for_Rent_End}" /></td>
+					<td><c:out value="${post.apartmentObject.Host}" /></td>
+					<td><c:out value="${post.apartmentObject.Price_per_night}" /></td>
+					<td><c:out value="${post.apartmentObject.Latitude}" /></td>
+					<td><c:out value="${post.apartmentObject.Longitude}" /></td>	
+					<td><c:out value="${post.apartmentObject.Street}" /></td>
+					<td><c:out value="${post.apartmentObject.Streetnumber}" /></td>
+					<td><c:out value="${post.apartmentObject.Place}" /></td>
+					<td><c:out value="${post.apartmentObject.Zip_post}" /></td>
+					<td><c:out value="${post.Sadrzaj.Sadrzaj}" /></td>
+				
+					
+							</tr>
+				</c:forEach>
+			
+			</table>
 
 				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
 
-				</div>
-				<div class="form-group">
-					<label for="Role">Role</label> <input type="text"
-						class="form-control" name="Role"
-						value="<c:out value="${result.Role}" />">
-
-				</div>
-
-
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
-
+			</div>
 		</div>
-
 	</div>
+	<script src="javascript/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
 
-
-	<script>
-		$(function() {
-			$("#navbar").load("view/navbar.jsp");
-		});
-	</script>
+	<script src="javascript/jquery-3.4.1.js"></script>
+	<script> 
+		$(function(){
+  		$("#navbar").load("view/navbar.jsp");
+  		
+  		
+ 
+        });
+</script>
 </body>
 </html>

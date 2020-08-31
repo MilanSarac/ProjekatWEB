@@ -11,7 +11,13 @@
 	crossorigin="anonymous">
 <script src="javascript/jquery-3.4.1.js"></script>
 
-<title>Korisnicka strana</title>
+<title>Dodavanje Sadrzaja</title>
+<style>
+h1 {
+	text-align: center;
+}
+</style>
+
 </head>
 <body>
 	<div id="navbar"></div>
@@ -106,43 +112,34 @@
 			%>
 		</ul>
 	</div>
-	<BR>
+		<br>
+</head>
+<body>
+<BR>
 
 	<div class="row justify-content-md-center">
 		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />" readonly="@(true)">
+ 
+  
+		<form method="post">
+		
+		<div class ="form-group">
 
-				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
-
-				</div>
-				<div class="form-group">
-					<label for="Role">Role</label> <input type="text"
-						class="form-control" name="Role"
-						value="<c:out value="${result.Role}" />">
-
-				</div>
-
-
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
-
+			<label for = "Name_Amenities">Naziv Sadrzaja</label>
+			<input type="text" class ="form-control" name ="Name_Amenities"
+			placeholder=" Enter Name_Amenities" >
 		</div>
-
-	</div>
-
+	
+	
+			<button type="submit value" class="btn btn-success">Submit</button>
+	<a href="/WebProjekat id="cancel" name="cancel" class="btn btn-secondary">Cancel</a>
+		</div>
+	</form>  
+</div>
+<script src="bootstrap/js/bootstrap.js.min"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 
 	<script>
 		$(function() {

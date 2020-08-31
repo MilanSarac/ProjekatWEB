@@ -11,7 +11,14 @@
 	crossorigin="anonymous">
 <script src="javascript/jquery-3.4.1.js"></script>
 
-<title>Korisnicka strana</title>
+<title>Insert title here</title>
+
+<style>
+h1 {
+	text-align: center;
+}
+</style>
+
 </head>
 <body>
 	<div id="navbar"></div>
@@ -106,44 +113,104 @@
 			%>
 		</ul>
 	</div>
-	<BR>
+	<form method="post">
+<div class="container my-5">
 
-	<div class="row justify-content-md-center">
-		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />" readonly="@(true)">
+  <section>
+    
+    <div class="card mb-4">
+      
+      <div class="row">
 
-				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
+        <div class="col-md-6">
+				
 
-				</div>
-				<div class="form-group">
-					<label for="Role">Role</label> <input type="text"
-						class="form-control" name="Role"
-						value="<c:out value="${result.Role}" />">
+<img class="img-fluid rounded-left" src="https://mdbootstrap.com/img/Photos/Vertical/7.jpg" alt="project image">
+        </div>
 
-				</div>
+        <div class="col-md-6 p-5 align-self-center">
+        
+        <ul class="list-unstyled font-small mt-5 mb-0">
+
+          <p class="text-uppercase mb-2"><strong>Tip Apartmana</strong></p>
+          <p class="text-muted"><c:out value="${resultArray.apartmentObject.Type}" /></p>
+
+            <li>
+              <p class="text-uppercase mb-2"><strong>Broj Soba</strong></p>
+              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Number_Rooms}" /></p>
+            </li>
+
+            <li>
+              <p class="text-uppercase mb-2"><strong>Broj gostiju</strong></p>
+              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Number_Guests}" /></p>
+            </li>
+
+            <li>
+              <p class="text-uppercase mb-2"><strong>Datum pocetak</strong></p>
+              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Date_for_Rent_Start}" /></p>
+            </li>
+
+            <li>
+              <p class="text-uppercase mb-2"><strong>Datum kraj</strong></p>
+              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Date_for_Rent_End}" /></p>
+            </li>
+            
+             <li>
+              <p class="text-uppercase mb-2"><strong>Domacin</strong></p>
+             <p class="text-muted"><c:out value="${resultArray.apartmentObject.Host}" /></p>
+            </li>
+
+             <li>
+              <p class="text-uppercase mb-2"><strong>Cena nocenja</strong></p>
+             <p class="text-muted"><c:out value="${resultArray.apartmentObject.Price_per_night}" /></p>
+            </li>
+
+             <li>
+              <p class="text-uppercase mb-2"><strong>Geo Sirina</strong></p>
+            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Latitude}" /></p>
+            </li>
+			 <li>
+              <p class="text-uppercase mb-2"><strong>Geo Duzina</strong></p>
+            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Longitude}" /></p>
+            </li>
+			 <li>
+              <p class="text-uppercase mb-2"><strong>Ulica</strong></p>
+            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Street}" /></p>
+            </li>
+ 			<li>
+              <p class="text-uppercase mb-2"><strong>Ulicni Broj</strong></p>
+            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Streetnumber}" /></p>
+            </li>
+			 <li>
+              <p class="text-uppercase mb-2"><strong>Mesto</strong></p>
+            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Place}" /></p>
+            </li>
+			 <li>
+              <p class="text-uppercase mb-2"><strong>Postanski Broj</strong></p>
+            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Zip_post}" /></p>
+            </li>
+			 <li>
+              <p class="text-uppercase mb-2"><strong>Sadrzaj</strong></p>
+            <p class="text-muted"><c:out value="${resultArray.Sadrzaj.Sadrzaj}" /></p>
+            </li>
 
 
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
+          </ul>
 
-		</div>
+        </div>
 
-	</div>
+      </div>
 
+    </div>
 
+  </section>
+
+</div>
+	</form>
+
+</body>
+
+	
 	<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");

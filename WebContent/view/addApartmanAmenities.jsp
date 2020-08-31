@@ -10,8 +10,7 @@
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 	crossorigin="anonymous">
 <script src="javascript/jquery-3.4.1.js"></script>
-
-<title>Korisnicka strana</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -105,49 +104,30 @@
 				}
 			%>
 		</ul>
-	</div>
+	</div>>
 	<BR>
-
 	<div class="row justify-content-md-center">
 		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />" readonly="@(true)">
+			<form method="post">
+				
+				<c:forEach var="post" items="${allAmenities}"
+					 varStatus="statusInner">
+						<input type ="checkbox" name="${post}" ><c:out value="${post}" /></option>
+				</c:forEach>						
+<BR>
 
-				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
-
-				</div>
-				<div class="form-group">
-					<label for="Role">Role</label> <input type="text"
-						class="form-control" name="Role"
-						value="<c:out value="${result.Role}" />">
-
-				</div>
-
-
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
-
+<BR>
+<BR>
+			<button type="submit value" onclick ="get_selected_checkboxes_array"class="btn btn-success">Submit</button>
+	<a href="/WebProjekat id="cancel" name="cancel" class="btn btn-secondary">Cancel</a>
 		</div>
+	</form> 
+		</div>	
 
-	</div>
-
-
-	<script>
+		<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");
 		});
-	</script>
+</script>
 </body>
 </html>

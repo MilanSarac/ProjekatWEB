@@ -12,18 +12,19 @@
 	<script src="javascript/jquery-3.4.1.js"></script>
 
 <title>Login</title>
-<<<<<<< HEAD
+
 <style>
 h1 {
 	text-align: center;
 }
 </style>
-=======
->>>>>>> 5f07555b6f6e47accceec22cf80449bb387a50ff
+
 </head>
 <body>
 <div class="container">
 <h1>Logovanje Korisnika</h1>
+
+
 	<div class="row justify-content-md-center">
 		<div class="col-8 offset-2">
     	<form method="post">

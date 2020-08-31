@@ -9,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import data.AddressRepository;
-import model.Address;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import data.ApartmentRepository;
 
 /**
- * Servlet implementation class AddressServlet
+ * Servlet implementation class ApartmanViewServlet
  */
-@WebServlet("/address.jsp")
-public class AddressServlet extends HttpServlet {
+@WebServlet("/apartmanView.jsp")
+public class ApartmanViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddressServlet() {
+    public ApartmanViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,25 +33,32 @@ public class AddressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd= request.getRequestDispatcher("view/address.jsp");
+		
+		ApartmentRepository ar = new ApartmentRepository();
+			 JSONArray allApartmants = (JSONArray) ar.GetallApartments();
+			 JSONArray apartman = new JSONArray();
+			 for (int i = 0; i < allApartmants.size(); i++) {
+				 JSONObject result = (JSONObject) allApartmants.get(i);
+				
+			 
+			 System.out.println(result+"nesto pametno");
+			 
+			 request.setAttribute("resultArray", result);
+
+			 }
+	
+
+		RequestDispatcher rd = request.getRequestDispatcher("/view/apartmanView.jsp");
 		rd.forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String Street= request.getParameter("Street");
-		String Streetnumber= request.getParameter("Streetnumber");
-		String Place= request.getParameter("Place");
-		String Zip_post= request.getParameter("Zip_post");
-		
-		Address address = new Address(Street, Streetnumber,Place,Zip_post);
-		
-		
-		AddressRepository ar= new AddressRepository();
-		ar.addAddress(address);
-		response.sendRedirect("/WebProjekat/");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

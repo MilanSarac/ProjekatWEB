@@ -61,6 +61,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("/WebProjekat/user.jsp");
 				return;
 			}
+			request.setAttribute("errorMessage", "greska");
 	}
 			request.setAttribute("errorMessage", "greska");
 			RequestDispatcher rd= request.getRequestDispatcher("/view/login.jsp");

@@ -2,27 +2,25 @@ package servlets;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import data.CommentRepository;
-import model.Comment;
+import data.AmenitiesRepository;
 
 /**
- * Servlet implementation class CommentServlet
+ * Servlet implementation class DeleteAmenitiesServlet
  */
-@WebServlet("/comment.jsp")
-public class CommentServlet extends HttpServlet {
+@WebServlet("/deleteAmenities.jsp")
+public class DeleteAmenitiesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommentServlet() {
+    public DeleteAmenitiesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,23 +29,19 @@ public class CommentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd= request.getRequestDispatcher("view/comment.jsp");
-		rd.forward(request, response);
+		String ID_Amenities = request.getParameter("name");
+		AmenitiesRepository cr = new AmenitiesRepository();
+		cr.DeleteAmenities(ID_Amenities);
+		response.sendRedirect("/WebProjekat/updateAmenities1.jsp");
+		return;
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String Sender= request.getParameter("Sender");
-		String ReferedToApartment= request.getParameter("ReferedToApartment");
-		String Rating= request.getParameter("Rating");
-		String Text= request.getParameter("Text");
-		Comment comment = new Comment(Sender, ReferedToApartment,Rating,Text);
-		
-		
-		CommentRepository cr= new CommentRepository();
-		cr.addComment(comment);
-		response.sendRedirect("/WebProjekat/");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

@@ -15,54 +15,73 @@
 	<div id="navbar"></div>
 	<BR>
 	<BR>
+	<div>
 		<ul class="nav nav-pills">
-		<li class="nav-item"><a class="nav-link" href="user.jsp">Korisnicki
-					podaci</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Dodavanje
-					Lokacije A</a></li>
-			<li class="nav-item"><a class="nav-link" href="address.jsp">Dodavanje
-					Adrese</a></li>
+
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
+					Korisnika</a></li>
 			<%
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
 
 			<BR>
-					<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Modifikacija
-					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Brisanje
-					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link active" href="allUsers.jsp">Pregled
-					svih Komentara</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pregled
-					svih Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link" href="amenities.jsp">Dodavanje
+					svih korisnika</a></li>
+			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+					Svih Apartmana</a></li>
+			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
+					Apartmana</a></li>
+			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Brisanje
+					Apartmana</a></li>
+			<li class="nav-item"><a class="nav-link" href="addAmenities.jsp">Dodavanje
 					Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link " href="allAmenities.jsp">Pregled
-					svih Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="updateAmenities1.jsp">Obnova Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link "
+				href="allApartmans.jsp">Brisanje Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+					svih Komentara</a></li>
+			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+					Rezervacija</a></li>
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Blokiranje
+					Korisnika</a></li>
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
+					Korisnika</a></li>
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Kreiranje
+					Domacina</a></li>
+
+			<li class="nav-item"><a class="nav-link "
+				href="allAmenities.jsp">Pregled svih Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link "
+				href="updateAmenities1.jsp">Izmena svih Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link "
+				href="allApartmans.jsp">Izmena svih Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link" href="apartmanView.jsp">Pregled
+					jednog Apartmanaa</a></li>
 
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
 			%>
 			<BR>
 			<BR>
+			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+					svih korisnika sa rezervacijom</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="aktivniApartmani.jsp">Aktivni apartmani</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="view/location.jsp">Neaktivni Apartmani</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Izmena
-					podataka</a></li>
+					podataka Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Dodavanje
 					Novog Apartmana</a></li>
+			<li class="nav-item"><a class="nav-link" href="location.jsp">Brisanje
+					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Pregled
 					Rezervacija Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
 					Komentara Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Preraga</a></li>
+			<li class="nav-item"><a class="nav-link" href="location.jsp">Pretraga</a></li>
 			<%
 				} else if (session.getAttribute("role").toString().equals("Gost")) {
 			%>
@@ -74,6 +93,12 @@
 					Rezervacije</a></li>
 			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Ostavljnje
 					Komentara</a></li>
+			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Sortiranje
+					Apatmana</a></li>
+			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Filtriranje
+					Apatmana</a></li>
+
+
 			<%
 				}
 			%>

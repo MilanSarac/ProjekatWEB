@@ -11,7 +11,7 @@
 	<classpathentry kind="var" path="ECLIPSE_HOME"/>
 	<classpathentry kind="lib" path="C:/Users/23/workspace/WebProjekat/WebContent/WEB-INF/lib/json-simple-1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/23/workspace/WebProjekat/WebContent/WEB-INF/lib/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/23/workspace/WP2020/Apache/apache-tomcat-8.0.47/lib/servlet-api.jar">
+	<classpathentry kind="lib" path="C:/Users/23/workspace/WP2020/Apache/apache-tomcat-8.0.47/lib/servlet-api.jar" sourcepath="">
 		<attributes>
 			<attribute name="javadoc_location" value="https://docs.oracle.com/javaee/6/api/"/>
 		</attributes>

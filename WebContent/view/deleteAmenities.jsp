@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<script src="javascript/jquery-3.4.1.js"></script>
-
-<title>Korisnicka strana</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -106,48 +100,14 @@
 			%>
 		</ul>
 	</div>
-	<BR>
-
-	<div class="row justify-content-md-center">
-		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />" readonly="@(true)">
-
-				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
-
-				</div>
-				<div class="form-group">
-					<label for="Role">Role</label> <input type="text"
-						class="form-control" name="Role"
-						value="<c:out value="${result.Role}" />">
-
-				</div>
-
-
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
-
-		</div>
-
+	<div>
+	<form method="post" >
+	<div>
+	<input type="hidden"  name="ID_Amenities" value="<%=session.getAttribute("iD_Amenities") %>"></div>
+	<div><input type="hidden"  name="Id1" value="<c:out value="${iD_Amenities}" />"></div>
+	
+	</form>
 	</div>
-
-
-	<script>
-		$(function() {
-			$("#navbar").load("view/navbar.jsp");
-		});
-	</script>
+<%=session.getAttribute("ID_Amenities") %>	
 </body>
 </html>

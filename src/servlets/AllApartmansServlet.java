@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import data.AmenitiesRepository;
+import data.ApartmentRepository;
 
 /**
- * Servlet implementation class AllAmenitiesServlet
+ * Servlet implementation class AllApartmansServlet
  */
-@WebServlet("/allAmenities.jsp")
-public class AllAmenitiesServlet extends HttpServlet {
+@WebServlet("/allApartmans.jsp")
+public class AllApartmansServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllAmenitiesServlet() {
+    public AllApartmansServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,21 +33,46 @@ public class AllAmenitiesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd= request.getRequestDispatcher("view/allAmenities.jsp"); 
-		AmenitiesRepository amr = new AmenitiesRepository();
-		 JSONArray allAmenities = (JSONArray) amr.GetAmenities();
+			
+		RequestDispatcher rd= request.getRequestDispatcher("/view/allApartmans.jsp"); 
+	/*	LocationAddressRepository lar = new LocationAddressRepository();
+		JSONArray allLocationAddress = (JSONArray) lar.GetLocationAddress();
+		JSONArray resultArray1 = new JSONArray();
+		 for (int i = 0; i < allLocationAddress.size(); i++) {
+			 JSONObject result1 = (JSONObject) allLocationAddress.get(i);
+				 resultArray1.add(result1);
+				
+		 }*/
+		
+
+
+		
+		
+
+		ApartmentRepository ar = new ApartmentRepository();
+		
+	/*	JSONArray allApartmants = new JSONArray();
+		ApartmentRepository cb = new ApartmentRepository();
+		allApartmants = cb.ActiveApartmans();
+		request.setAttribute("allApartmants", allApartmants);*/
+		
+	
+		 JSONArray allApartmants = (JSONArray) ar.GetallApartments();
 		 JSONArray resultArray = new JSONArray();
-		 for (int i = 0; i < allAmenities.size(); i++) {
-			 JSONObject result = (JSONObject) allAmenities.get(i);
+		 for (int i = 0; i < allApartmants.size(); i++) {
+			 JSONObject result = (JSONObject) allApartmants.get(i);
 				 resultArray.add(result);
 				
 		 }
-		 System.out.println(resultArray);
+		 System.out.println(resultArray+"nesto pametno");
 		 
 		 request.setAttribute("resultArray", resultArray);
 		 rd.forward(request, response);
 	}
-	/**}
+		
+
+
+	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

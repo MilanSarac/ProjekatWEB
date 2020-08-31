@@ -2,9 +2,53 @@ package model;
 
 public class Amenities {
 	
-
 	private String ID_Amenities;
-	private String Wifi;
+	private String Name_Amenities;
+	private boolean Active;
+	private String ID_Apartmans;
+	
+	public String getID_Apartmans() {
+		return ID_Apartmans;
+	}
+
+	public void setID_Apartmans(String iD_Apartmans) {
+		ID_Apartmans = iD_Apartmans;
+	}
+
+	public Amenities(String iD_Amenities,String name_Amenities,boolean active,String iD_Apartmans ) {
+		super();
+		ID_Amenities=iD_Amenities;
+		Name_Amenities=name_Amenities;
+		Active=active;
+		ID_Apartmans = iD_Apartmans;
+	}
+
+	public boolean isActive() {
+		return Active;
+	}
+
+	public void setActive(boolean active) {
+		Active = active;
+	}
+
+	public String getID_Amenities() {
+		return ID_Amenities;
+	}
+
+	public void setID_Amenities(String iD_Amenities) {
+		ID_Amenities = iD_Amenities;
+	}
+
+	public String getName_Amenities() {
+		return Name_Amenities;
+	}
+
+	public void setName_Amenities(String name_Amenities) {
+		Name_Amenities = name_Amenities;
+	}
+}
+	
+/*	private String Wifi;
 	private String Tv;
 	private String AirConditioning;
 	private String Elevator;
@@ -100,4 +144,4 @@ public class Amenities {
 	}
 	
 	
-}
+}*/

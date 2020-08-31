@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="javascript/jquery-3.4.1.js"></script>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<script src="javascript/jquery-3.4.1.js"></script>
-
-<title>Korisnicka strana</title>
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<title>Pregled Adresa</title>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -108,46 +109,50 @@
 	</div>
 	<BR>
 
-	<div class="row justify-content-md-center">
-		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />" readonly="@(true)">
-
-				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
-
-				</div>
-				<div class="form-group">
-					<label for="Role">Role</label> <input type="text"
-						class="form-control" name="Role"
-						value="<c:out value="${result.Role}" />">
-
-				</div>
-
-
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
-
+<div class="container">
+ <table class="table table-dark table-hover">
+				<tr>
+					<th>Latitude</th>
+					<th>Longitude</th>
+					<th>Street</th>
+					<th>Number</th>
+					<th>Place</th>
+					<th>Zip_post</th>
+		
+	</tr>
+				<c:forEach var="post" items="${resultArray}" varStatus="statusInner">
+						<td> <c:out value="${post.Object.Latitude}" /> </td>
+						<td> <c:out value="${post.Object.Longitude}" /> </td>
+						<td> <c:out value="${post.Location.Street}" /> </td>
+						<td> <c:out value="${post.Location.Streetnumber}" /> </td>
+						<td> <c:out value="${post.Location.Place}" /> </td> 		
+						<td> <c:out value="${post.Location.Zip_post}" /> </td>
+					
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
+	<BR>
+	
 
-	</div>
+<script src="javascript/jquery-3.4.1.js"></script>	
 
+		<script>
+		jQuery(document).ready(function($) {
+
+		    $(".clickable-row").click(function() {
+
+		        window.location = $(this).data("href");
+
+		    });
+
+		});	
+		</script>
 
 	<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");
 		});
-	</script>
+</script>	
 </body>
 </html>

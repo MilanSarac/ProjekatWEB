@@ -9,22 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import data.LocationRepository;
-import data.UserRepository;
-import model.Location;
-import model.User;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import data.LocationAddressRepository;
 
 /**
- * Servlet implementation class LocationServlet
+ * Servlet implementation class AllLocationAddress
  */
-@WebServlet("/location.jsp")
-public class LocationServlet extends HttpServlet {
+@WebServlet("/allLocationAddress.jsp")
+public class AllLocationAddress extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LocationServlet() {
+    public AllLocationAddress() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,23 +33,30 @@ public class LocationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd= request.getRequestDispatcher("view/location.jsp");
-		rd.forward(request, response);
+		RequestDispatcher rd= request.getRequestDispatcher("view/allLocationAddress.jsp"); 
+		LocationAddressRepository ar = new LocationAddressRepository();
+		 JSONArray allAddress = (JSONArray) ar.GetLocationAddress();
+		 JSONArray resultArray = new JSONArray();
+		 for (int i = 0; i < allAddress.size(); i++) {
+			 JSONObject result = (JSONObject) allAddress.get(i);
+				 resultArray.add(result);
+				
+		 }
+		 System.out.println(resultArray);
+		 
+		 request.setAttribute("resultArray", resultArray);
+		 rd.forward(request, response);
+		
+		
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String Latitude= request.getParameter("Latitude");
-		String Longitude= request.getParameter("Longitude");
-		String Location_Adress= request.getParameter("Location_Adress");
-		
-		Location location= new Location(Latitude,Longitude,Location_Adress); 
-	
-		LocationRepository lr= new LocationRepository();
-		lr.addLocation(location);
-		response.sendRedirect("/WebProjekat/");
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
+
 }

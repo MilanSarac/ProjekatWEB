@@ -1,17 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+</body>
+</html><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>       
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<script src="javascript/jquery-3.4.1.js"></script>
-
-<title>Korisnicka strana</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<title>Obnova sadrzaja</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -106,48 +109,62 @@
 			%>
 		</ul>
 	</div>
+<br>
 	<BR>
-
+	<BR>
+	<BR>
+	<BR>
+	<BR>
+	<BR>
 	<div class="row justify-content-md-center">
-		<div class="col-8 offset-2">
-			<form action="/WebProjekat/updateUser.jsp" method="post">
-				<div class="form-group">
-					<label for="Name">Name</label> <input type="text"
-						class="form-control" name="Name"
-						value="<c:out value="${result.Name}" />" readonly="@(true)">
 
-				</div>
-				<div class="form-group">
-					<label for="login-password">SureName</label> <input type="text"
-						class="form-control" name="SureName"
-						value="<c:out value="${result.SureName}" />">
-				</div>
-				<div class="form-group">
-					<label for="login-password">Password</label> <input type="text"
-						class="form-control" name="Password"
-						value="<c:out value="${result.Password}" />">
+        <div class="col-4">
 
-				</div>
-				<div class="form-group">
-					<label for="Role">Role</label> <input type="text"
-						class="form-control" name="Role"
-						value="<c:out value="${result.Role}" />">
-
-				</div>
-
-
-				<button type="submit" class="btn btn-primary" value="Update">Update</button>
-			</form>
-
-		</div>
-
-	</div>
-
-
-	<script>
-		$(function() {
-			$("#navbar").load("view/navbar.jsp");
+            <form method="post" >
+                <div class="form-group">
+                    <label for="text">Naziv</label>
+                    <input type="text" class="form-control" name="Name_Amenities" value="<c:out value="${amenities.Name_Amenities}" />">
+                </div>
+                 <div class="form-group">
+                    <label for="text">Status</label>
+                    <input type="text" class="form-control" name="Aktivan" value="<c:out value="${amenities.Active}" />">
+                </div>
+                 <div class="form-group">
+                    <button type="submit" class="btn btn-primary" onclick="myFunction()" value="Update">Update</button>
+                </div>
+                <div><input type="hidden" name="ID_Amenities"
+						value="<c:out value="${amenities.ID_Amenities}" />"></div>
+				
+            </form>
+        </div>
+    </div>
+<script src="javascript/jquery-3.4.1.js"></script>    
+<script> 
+		$(function(){
+  		$("#navbar").load("view/navbar.jsp");
 		});
-	</script>
+</script>
+<script>
+function myFunction() {
+  alert("Uspesno ste izmenili Sadrzaj");
+}
+</script>
 </body>
 </html>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 
