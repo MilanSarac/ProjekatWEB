@@ -24,15 +24,13 @@ table, th, td {
 		<ul class="nav nav-pills">
 
 			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
+					i Pregled Korisnika</a></li>
 			<%
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
 
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					svih korisnika</a></li>
 			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
 					Svih Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
@@ -41,10 +39,8 @@ table, th, td {
 					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="addAmenities.jsp">Dodavanje
 					Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link"
+			<li class="nav-item"><a class="nav-link active"
 				href="updateAmenities1.jsp">Obnova Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Brisanje Sadrzaja</a></li>
 			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
 					svih Komentara</a></li>
 			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
@@ -109,7 +105,7 @@ table, th, td {
 			%>
 		</ul>
 	</div>
-<br>
+	<br>
 	<BR>
 	<BR>
 	<BR>
@@ -118,53 +114,55 @@ table, th, td {
 	<BR>
 	<div class="row justify-content-md-center">
 
-        <div class="col-4">
+		<div class="col-4">
 
-            <form method="post" >
-                <div class="form-group">
-                    <label for="text">Naziv</label>
-                    <input type="text" class="form-control" name="Name_Amenities" value="<c:out value="${amenities.Name_Amenities}" />">
-                </div>
-                 <div class="form-group">
-                    <label for="text">Status</label>
-                    <input type="text" class="form-control" name="Aktivan" value="<c:out value="${amenities.Active}" />">
-                </div>
-                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" onclick="myFunction()" value="Update">Update</button>
-                </div>
-                <div><input type="hidden" name="ID_Amenities"
-						value="<c:out value="${amenities.ID_Amenities}" />"></div>
-				
-            </form>
-        </div>
-    </div>
-<script src="javascript/jquery-3.4.1.js"></script>    
-<script> 
+			<form method="post">
+				<div class="form-group">
+					<label for="text">Naziv</label> <input type="text"
+						class="form-control" name="Name_Amenities"
+						value="<c:out value="${amenities.Name_Amenities}" />">
+				</div>
+				<div class="form-group">
+					<label for="text">Status</label> <input type="text"
+						class="form-control" name="Aktivan"
+						value="<c:out value="${amenities.Active}" />">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary"
+						onclick="myFunction()" value="Update">Obnovi Sadrzaj</button>
+					<a href="/WebProjekat/" id="cancel" name="cancel"
+						onclick="myFunction1()" class="btn btn-secondary">Odustati</a>
+				</div>
+
+				<div>
+					<input type="hidden" name="ID_Amenities"
+						value="<c:out value="${amenities.ID_Amenities}" />">
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="javascript/jquery-3.4.1.js"></script>
+	<script>
+		function myFunction() {
+			alert("Uspesno ste obnovili sadrzaj! ");
+		}
+	</script>
+	<script>
+		function myFunction1() {
+			alert("Obnova Sadrzaja nije uspesna! ");
+		}
+	</script>
+
+	<script> 
 		$(function(){
   		$("#navbar").load("view/navbar.jsp");
 		});
 </script>
-<script>
+	<script>
 function myFunction() {
   alert("Uspesno ste izmenili Sadrzaj");
 }
 </script>
 </body>
 </html>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
- 
+

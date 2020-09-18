@@ -38,12 +38,13 @@ public class UpdateUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-
+		String Username= request.getParameter("Username");
 		String Name= request.getParameter("Name");
 		String SureName= request.getParameter("SureName");
 		String Password= request.getParameter("Password");
+		String PasswordControl= request.getParameter("PasswordControl");
 		UserRepository ur= new UserRepository(); 
-		ur.updateUser(Name, SureName, Password);
+		ur.updateUser(Username,Name, SureName, Password,PasswordControl);
 		
 		response.sendRedirect("/WebProjekat/user.jsp");
 		return;

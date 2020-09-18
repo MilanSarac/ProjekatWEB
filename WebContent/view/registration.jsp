@@ -25,35 +25,36 @@ h1 {
 		<div class="col-8 offset-2">
 		<form method="post">
 		<div class ="form-group">
-			<label for = "Username">Username</label>
+			<label for = "Username">Korisnicko ime</label>
 			<input type="text" class ="form-control" name ="Username"
-			placeholder=" Enter Username" >
+			placeholder=" Unesite Korisnicko ime " required>
 		</div>
 		<div class ="form-group">
-			<label for = "Name">Name</label>
+			<label for = "Name">Ime</label>
 			<input type="text" class ="form-control" name = "Name"
-			placeholder= " Enter Name" >
+			placeholder= " Unesite Ime" required>
 		</div>
 		<div class ="form-group">
 			<label for = "SureName">SureName</label>
 			<input type="text" class ="form-control" name = "SureName"
-			placeholder= " Enter SureName" >
+			placeholder= " Enter SureName" required>
 		</div>
 		<div class ="form-group">
-			<input type="radio" id="male" name="Male" value="Male">
-		  <label for="male">Male</label><br>
-		  <input type="radio" id="female" name="Male" value="Female">
-		  <label for="female">Female</label><br>
+		<label for = "Orijentacija">Pol</label></br>
+			<input type="radio" id="male" name="Male" value="Male" required>
+		  <label for="male">Muskarac</label><br>
+		  <input type="radio" id="female" name="Male" value="Female" required >
+		  <label for="female">Zena</label><br>
 				</div>
 		<div class ="form-group">
-			<label for = "Password">Password</label>
+			<label for = "Password">Lozinka</label>
 			<input type="password"  id="password"  class ="form-control" name = "Password"
-			placeholder=" Enter Password" >
+			placeholder=" Unesite Lozinku" required>
 		</div>
 			<div class ="form-group">
-			<label for = "PasswordControl">Password Control</label>
+			<label for = "PasswordControl">Kontrola Lozinke</label>
 			<input type="password"  id="Cpassword"  class ="form-control" name = "PasswordControl"
-			placeholder="RE-Enter Password" >
+			placeholder="Ponovite Lozinku" required>
 		</div>
 			<div class="form-group">
 					<input type="submit" value="Create" onclick="passwordMatch()"  class="btn btn-success" />

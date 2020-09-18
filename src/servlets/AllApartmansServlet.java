@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import data.ApartmentRepository;
+import logic.ApartmanLogic;
 
 /**
  * Servlet implementation class AllApartmansServlet
@@ -35,41 +35,16 @@ public class AllApartmansServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		RequestDispatcher rd= request.getRequestDispatcher("/view/allApartmans.jsp"); 
-	/*	LocationAddressRepository lar = new LocationAddressRepository();
-		JSONArray allLocationAddress = (JSONArray) lar.GetLocationAddress();
-		JSONArray resultArray1 = new JSONArray();
-		 for (int i = 0; i < allLocationAddress.size(); i++) {
-			 JSONObject result1 = (JSONObject) allLocationAddress.get(i);
-				 resultArray1.add(result1);
-				
-		 }*/
-		
-
-
-		
-		
-
 		ApartmentRepository ar = new ApartmentRepository();
 		
-	/*	JSONArray allApartmants = new JSONArray();
-		ApartmentRepository cb = new ApartmentRepository();
-		allApartmants = cb.ActiveApartmans();
-		request.setAttribute("allApartmants", allApartmants);*/
-		
-	
-		 JSONArray allApartmants = (JSONArray) ar.GetallApartments();
-		 JSONArray resultArray = new JSONArray();
-		 for (int i = 0; i < allApartmants.size(); i++) {
-			 JSONObject result = (JSONObject) allApartmants.get(i);
-				 resultArray.add(result);
-				
-		 }
-		 System.out.println(resultArray+"nesto pametno");
-		 
-		 request.setAttribute("resultArray", resultArray);
+		 ApartmanLogic al = new ApartmanLogic();
+			JSONArray allANApartments = al.ApartmansAN();
+			request.setAttribute("allANApartments", allANApartments);
+
 		 rd.forward(request, response);
 	}
-		
+
+
 
 
 	/**

@@ -24,39 +24,40 @@ public class ApartmentRepository {
 		JSONArray allApartments=new JSONArray();
 		allApartments= (JSONArray) GetallApartments();
 		
-		JSONObject apartmentObject = new JSONObject();
-		JSONObject amenitiesObject = new JSONObject();
-		apartmentObject.put("ID", apartment.getID());
-		amenitiesObject.put("Sadrzaj", apartment.getSadrzaj());
-		apartmentObject.put("Type", apartment.getType());
-		apartmentObject.put("Number_Rooms", apartment.getNumber_Rooms());
-		apartmentObject.put("Number_Guests", apartment.getNumber_Guests());
-		apartmentObject.put("Date_for_Rent_Start", apartment.getDate_for_Rent_Start());
-		apartmentObject.put("Date_for_Rent_End", apartment.getDate_for_Rent_End());
-		apartmentObject.put("Host", apartment.getHost());
-		apartmentObject.put("Price_per_night", apartment.getPrice_per_night());
-		apartmentObject.put("Check_in_time", apartment.getCheck_in_time());
-		apartmentObject.put("Check_out_time", apartment.getCheck_out_time());
-		apartmentObject.put("Active", apartment.isActive());
-		apartmentObject.put("Latitude", apartment.getLatitude());
-		apartmentObject.put("Longitude", apartment.getLongitude());
-		apartmentObject.put("Street", apartment.getStreet());
-		apartmentObject.put("Streetnumber", apartment.getStreetnumber());
-		apartmentObject.put("Place", apartment.getPlace());
-		apartmentObject.put("Zip_post", apartment.getZip_post());
-	
-		JSONObject apartmentObjectO = new JSONObject();
-		apartmentObjectO.put("Sadrzaj",amenitiesObject);
-		apartmentObjectO.put("apartmentObject",apartmentObject);
+		JSONObject apartmentJson = new JSONObject();
+		//JSONObject amenitiesObject = new JSONObject();
+		apartmentJson.put("ID_Apartman", apartment.getID_Apartman());
+		apartmentJson.put("Sadrzaj", apartment.getSadrzaji());
+		apartmentJson.put("Type", apartment.getType());
+		apartmentJson.put("Number_Rooms", apartment.getNumber_Rooms());
+		apartmentJson.put("Number_Guests", apartment.getNumber_Guests());
+		apartmentJson.put("Date_for_Rent_Start", apartment.getDate_for_Rent_Start());
+		apartmentJson.put("Date_for_Rent_End", apartment.getDate_for_Rent_End());
+		apartmentJson.put("Host", apartment.getHost());
+		apartmentJson.put("Price_per_night", apartment.getPrice_per_night());
+		apartmentJson.put("Check_in_time", apartment.getCheck_in_time());
+		apartmentJson.put("Check_out_time", apartment.getCheck_out_time());
+		apartmentJson.put("Active",apartment.isActive());
+		apartmentJson.put("Latitude", apartment.getLatitude());
+		apartmentJson.put("Longitude", apartment.getLongitude());
+		apartmentJson.put("Street", apartment.getStreet());
+		apartmentJson.put("Streetnumber", apartment.getStreetnumber());
+		apartmentJson.put("Place", apartment.getPlace());
+		apartmentJson.put("Zip_post", apartment.getZip_post());
+		apartmentJson.put("Positive", apartment.getPositive());
+		//JSONObject apartmentObjectO = new JSONObject();
+	//	apartmentObjectO.put("Sadrzaj",amenitiesObject);
+		//apartmentObjectO.put("apartmentObject",apartmentObject);
+	//	System.out.println(apartmentObject);
+		allApartments.add(apartmentJson);
 		
-		allApartments.add(apartmentObjectO);
-		
-		System.out.println(apartmentObject);
+		System.out.println(apartmentJson);
 		FileWriter file1= new FileWriter(file);
 		file1.write(allApartments.toJSONString());
 		file1.flush();
 		file1.close();
 	}
+
 	public ArrayList<Apartment> GetallApartments() throws IOException {
 		File file= new File(path);
 		FileReader fileReader = new FileReader(file);
@@ -77,13 +78,15 @@ public class ApartmentRepository {
 		JSONArray allApartments=new JSONArray();
 		allApartments= (JSONArray) GetallApartments();
 		JSONObject apartmentObject = new JSONObject();
-		apartmentObject.put("ID", apartment.getID());
+		apartmentObject.put("ID_Apartman", apartment.getID_Apartman());
 		allApartments.add(apartmentObject);
 		FileWriter file1= new FileWriter(file);
 		file1.write(allApartments.toJSONString());
 		file1.flush();
 		file1.close();
 	}
+	
+	
 	public JSONArray ActiveApartmans() throws IOException {
 		ApartmentRepository  ar= new ApartmentRepository();
 			
@@ -100,5 +103,62 @@ public class ApartmentRepository {
 			}
 			return allActiveApartmans;
 		}
-}
+
+	 public JSONObject ApartmanById(String ID_Apartman) throws IOException {
+		 JSONArray allApartmans = new JSONArray();
+		 allApartmans = ActiveApartmans();
+		 JSONObject advertiesments = new JSONObject();
+		 for (int i=0;i<allApartmans.size();i++) {
+			 JSONObject result = (JSONObject) allApartmans.get(i);
+			 String id_Apartman = (String) result.get("ID_Apartman");
+			 if(id_Apartman.equals(id_Apartman)) {
+				 advertiesments=(JSONObject) allApartmans.get(i);
+			 }
+		 }
+		 
+		 return advertiesments;
+	 }
+	 public void DeleteApartman(String ID_Apartman) throws IOException {
+			File file = new File(path);
+			JSONArray allApartmans = new JSONArray();
+			allApartmans = (JSONArray) GetallApartments();
+			for(int i=0;i<allApartmans.size();i++) {
+				JSONObject result = (JSONObject) allApartmans.get(i);
+				String id_Apartman = (String) result.get("ID_Apartman");
+				if(id_Apartman.equals(ID_Apartman)) {
+					result.put("Active", false);
+					
+					FileWriter file1 = new FileWriter(file);
+					file1.write(allApartmans.toJSONString());
+					file1.flush();
+					file1.close();
+				}
+			}
+		}
+
+	@SuppressWarnings("unchecked")
+	public void updateApartman(String ID_Apartman, String Number_Guests)throws IOException{
+		File file=new File(path);
+		JSONArray allApartmans=new JSONArray();
+		allApartmans= (JSONArray)GetallApartments();
+		JSONObject userObject = new JSONObject();
+		for(int i=0; i< allApartmans.size(); i++) {
+		
+		JSONObject result = (JSONObject) allApartmans.get(i);
+		String name= (String)result.get("ID_Apartman");
+		if(name.equals(ID_Apartman)) {
+		result.put("ID_Apartman",ID_Apartman);
+		result.put("Number_Guests",Number_Guests);
+		FileWriter file1= new FileWriter(file);
+		file1.write(allApartmans.toJSONString());
+		file1.flush();
+		file1.close();
+	}
+	}
+	}
+}	
+		 
+
+
+
 

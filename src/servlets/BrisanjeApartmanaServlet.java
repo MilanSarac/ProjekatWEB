@@ -10,21 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import data.ApartmentRepository;
+import logic.ApartmanLogic;
 
 /**
- * Servlet implementation class ApartmanViewServlet
+ * Servlet implementation class BrisanjeApartmanaServlet
  */
-@WebServlet("/apartmanView.jsp")
-public class ApartmanViewServlet extends HttpServlet {
+@WebServlet("/brisanjeApartmana.jsp")
+public class BrisanjeApartmanaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ApartmanViewServlet() {
+    public BrisanjeApartmanaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,24 +33,13 @@ public class ApartmanViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ApartmentRepository ar = new ApartmentRepository();
-			 JSONArray allApartmants = (JSONArray) ar.GetallApartments();
-			 JSONArray apartman = new JSONArray();
-			 for (int i = 0; i < allApartmants.size(); i++) {
-				 JSONObject result = (JSONObject) allApartmants.get(i);
-				
-			 
-			 System.out.println(result+"nesto pametno");
-			 
-			 request.setAttribute("resultArray", result);
-
-			 }
-	
-
-		RequestDispatcher rd = request.getRequestDispatcher("/view/apartmanView.jsp");
+		JSONArray allApartmans = new JSONArray();
+		ApartmanLogic ll = new ApartmanLogic();
+		ApartmentRepository ur= new ApartmentRepository ();
+		allApartmans = ll.ActiveApartmans();
+		request.setAttribute("allUser", allApartmans);
+		RequestDispatcher rd = request.getRequestDispatcher("/view/brisanjeApartmana.jsp");
 		rd.forward(request, response);
-		
 	}
 
 	/**

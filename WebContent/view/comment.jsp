@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="javascript/jquery-3.4.1.js"></script>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<script src="javascript/jquery-3.4.1.js"></script>
-<title>Comment</title>
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<title>Pregled Komentara</title>
 </head>
+<body>
 <body>
 	<div id="navbar"></div>
 	<BR>
@@ -18,47 +22,32 @@
 	<div>
 		<ul class="nav nav-pills">
 
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
 			<%
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
 
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					svih korisnika</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga i Pregled 
+					Korisnika</a></li>
+			<li class="nav-item"><a class="nav-link" href="activeApartmans.jsp">Pregled
 					Svih Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
+			<li class="nav-item"><a class="nav-link " href="updateApartman.jsp">Modifikacija
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Brisanje
+			<li class="nav-item"><a class="nav-link " href="brisanjeApartmana.jsp">Brisanje
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addAmenities.jsp">Dodavanje
+			<li class="nav-item"><a class="nav-link " href="addAmenities.jsp">Dodavanje
 					Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="updateAmenities1.jsp">Obnova Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Brisanje Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+			<li class="nav-item"><a class="nav-link " href="updateAmenities1.jsp">Pregled i Izmene Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link active" href="comment.jsp">Pregled
 					svih Komentara</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="allReservation.jsp">Pregled
 					Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Blokiranje
+			<li class="nav-item"><a class="nav-link  " href="brisanjeKorisnikastrana.jsp">Brisanje
 					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Kreiranje
+			<li class="nav-item"><a class="nav-link " href="registration.jsp">Kreiranje
 					Domacina</a></li>
 
-			<li class="nav-item"><a class="nav-link "
-				href="allAmenities.jsp">Pregled svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="updateAmenities1.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmanView.jsp">Pregled
-					jednog Apartmanaa</a></li>
 
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
@@ -79,59 +68,56 @@
 					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Pregled
 					Rezervacija Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
+			<li class="nav-item"><a class="nav-link active" href="comment.jsp">Pregled
 					Komentara Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Pretraga</a></li>
+		
 			<%
 				} else if (session.getAttribute("role").toString().equals("Gost")) {
 			%>
 			<BR>
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Pregled
-					Svojih Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Kreiranje
-					Rezervacije</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Ostavljnje
+			<li class="nav-item"><a class="nav-link " href="allReservation.jsp">Pregled
+					mojih Rezervacija</a></li>
+			<li class="nav-item"><a class="nav-link active" href="comment.jsp">Pregled svih
 					Komentara</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Sortiranje
-					Apatmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Filtriranje
-					Apatmana</a></li>
 
 
 			<%
 				}
 			%>
+
 		</ul>
 	</div>
-	<BR>
-	<div class="row justify-content-md-center">
-		<div class="col-8 offset-2">
-			<form method="post">
-				<div class="form-group">
-					<label for="Sender">Sender</label> <input type="text"
-						class="form-control" name="Sender" placeholder=" Enter Sender">
-				</div>
-				<div class="form-group">
-					<label for=ReferedToApartment>ReferedToApartment</label> <input type="text"
-						class="form-control" name="ReferedToApartment" placeholder=" Enter ReferedToApartment">
-				</div>
-								
-		<div class="form-group">
-					<label for="Rating">Rating</label> <input type="number"
-						class="form-control" name="Rating" placeholder=" Enter Rating">
-				</div>
- 
-			<div class="form-group">
-            <label for="Text" class="col-form-label">Message:</label>
-            <textarea class="form-control" name="Text" id="Text"></textarea>
-          </div>
+<div class="container-fluid">
+		<table class="table table-dark table-hover">
+								<tr>
+									<th>Sender</th>
+									<th>ReferedToApartment</th>
+									<th>Rating</th>
+									<th>Text</th>
+									<th>Active</th>
+								</tr>
+					<c:forEach var="post" items="${allANComment}" varStatus="statusInner">
+					
 
-			<button type="submit value="Create"" class="btn btn-success">Submit</button>
-	<a href="/WebProjekat/" id="cancel" name="cancel" class="btn btn-secondary">Cancel</a>
-		</div>
-	</form>  
-</div>
+							<td><c:out value="${post.Sender}" /></td>
+							<td><c:out value="${post.ReferedToApartment}" /></td>
+							<td><c:out value="${post.Rating}" /></td>
+							<td><c:out value="${post.Text}" /></td>
+							<td><c:out value="${post.Active}" /></td>
+		</tr>
+				</c:forEach>
+			</table>
+				</div>
+			</div>
+<script src="javascript/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
 
 <script>
 		$(function() {

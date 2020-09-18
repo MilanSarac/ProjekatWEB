@@ -1,1 +1,44 @@
-[{"Sender":"Moj","ReferedToApartment":"Prvi ","Rating":"6","Text":"Ukoliko bude dobar ispis, ja cu biti happy."}]
+[
+  {
+    "Sender": "adm",
+    "ReferedToApartment": "5a47ab53-fbed-4ee9-b97c-b978ae18e547",
+    "Rating": "3",
+    "Text": "Hteo bih da Vas pohvalim.",
+    "Active": true
+  },
+  {
+    "Sender": "Gost",
+    "ReferedToApartment": "dcd022d1-6d41-46bf-b4fe-2639367bfd71",
+    "Rating": "5",
+    "Text": "Svaka cast",
+    "Active": true
+  },
+  {
+    "Sender": "Gost",
+    "ReferedToApartment": "f2e4a019-716e-4fc5-b9b7-10b4a6ac8470",
+    "Rating": "4",
+    "Text": "Prelep ambijent, savrsena priroda!",
+    "Active": true
+  },
+  {
+    "Sender": "Gost",
+    "ReferedToApartment": "f2e4a019-716e-4fc5-b9b7-10b4a6ac8470",
+    "Rating": "5",
+    "Text": "Ludilo, vrh!",
+    "Active": true
+  },
+  {
+    "Sender": "Gost",
+    "ReferedToApartment": "5a47ab53-fbed-4ee9-b97c-b978ae18e547",
+    "Rating": "5",
+    "Text": "Ludilo, vrh! Konacno je moj ebike pronasao staze kojima ne moze da odoli",
+    "Active": true
+  },
+  {
+    "Sender": "Gost",
+    "ReferedToApartment": "f2e4a019-716e-4fc5-b9b7-10b4a6ac8470",
+    "Rating": "3",
+    "Text": "GOOOOOOOOOOOuuuuu",
+    "Active": true
+  }
+]

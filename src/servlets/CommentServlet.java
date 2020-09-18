@@ -8,8 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import data.CommentRepository;
+import logic.CommentLogic;
 import model.Comment;
 
 /**
@@ -31,9 +36,32 @@ public class CommentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		HttpSession session = request.getSession();
+		String sesija = session.getAttribute("sesija").toString();
 		RequestDispatcher rd= request.getRequestDispatcher("view/comment.jsp");
-		rd.forward(request, response);
+		CommentLogic cl = new CommentLogic();
+		JSONArray comment = cl.ActiveComment();
+		JSONArray returnComment = new JSONArray();
+		for (int i=0;i<comment.size();i++) {
+			JSONObject result = (JSONObject) comment.get(i);
+			
+
+				returnComment.add(result);
+					}
+		
+		request.setAttribute("allANComment", returnComment);
+
+ 
+			rd.forward(request, response);
+
 	}
+		
+
+
+		
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -42,7 +70,7 @@ public class CommentServlet extends HttpServlet {
 		String ReferedToApartment= request.getParameter("ReferedToApartment");
 		String Rating= request.getParameter("Rating");
 		String Text= request.getParameter("Text");
-		Comment comment = new Comment(Sender, ReferedToApartment,Rating,Text);
+		Comment comment = new Comment(Sender, ReferedToApartment,Rating,Text,true);
 		
 		
 		CommentRepository cr= new CommentRepository();

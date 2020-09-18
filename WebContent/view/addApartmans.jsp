@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link href="css/addAdvertiesment.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
@@ -33,80 +36,56 @@ h1 {
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
-
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					svih korisnika</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga i Pregled 
+					Korisnika</a></li>
+			<li class="nav-item"><a class="nav-link" href="activeApartmans.jsp">Pregled
 					Svih Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
+			<li class="nav-item"><a class="nav-link" href="updateApartman1.jsp">Modifikacija
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Brisanje
+			<li class="nav-item"><a class="nav-link" href="brisanjeApartmana.jsp">Brisanje
 					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="addAmenities.jsp">Dodavanje
 					Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="updateAmenities1.jsp">Obnova Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Brisanje Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="updateAmenities1.jsp">Pregled i Izmene Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
 					svih Komentara</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="allReservation.jsp">Pregled
 					Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Blokiranje
+			<li class="nav-item"><a class="nav-link  " href="brisanjeKorisnikastrana.jsp">Brisanje
 					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Kreiranje
+			<li class="nav-item"><a class="nav-link " href="registration.jsp">Kreiranje
 					Domacina</a></li>
-
-			<li class="nav-item"><a class="nav-link "
-				href="allAmenities.jsp">Pregled svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="updateAmenities1.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmanView.jsp">Pregled
-					jednog Apartmanaa</a></li>
-
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
 			%>
 			<BR>
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="userApartmanReservation.jsp">Pregled
 					svih korisnika sa rezervacijom</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="aktivniApartmani.jsp">Aktivni apartmani</a></li>
+				href="activeApartmans.jsp">Aktivni apartmani</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="view/location.jsp">Neaktivni Apartmani</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Izmena
+				href=activeNOApartman.jsp>Neaktivni Apartmani</a></li>
+			<li class="nav-item"><a class="nav-link" href="updateApartman.jsp">Izmena
 					podataka Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Dodavanje
+			<li class="nav-item"><a class="nav-link active" href="addApartmans.jsp">Dodavanje
 					Novog Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Brisanje
+			<li class="nav-item"><a class="nav-link" href="brisanjeApartmana.jsp">Brisanje
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="allReservation.jsp">Pregled
 					Rezervacija Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
 					Komentara Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Pretraga</a></li>
 			<%
 				} else if (session.getAttribute("role").toString().equals("Gost")) {
 			%>
 			<BR>
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Pregled
-					Svojih Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Kreiranje
-					Rezervacije</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Ostavljnje
+			<li class="nav-item"><a class="nav-link active" href="allReservation.jsp">Pregled
+					mojih Rezervacija</a></li>
+			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled svih
 					Komentara</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Sortiranje
-					Apatmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmani.jsp">Filtriranje
-					Apatmana</a></li>
-
 
 			<%
 				}
@@ -136,7 +115,7 @@ h1 {
 
 					</div>
 					<div class="col-4">
-						<input type="text" class="form-control" name="Price"
+						<input type="text" class="form-control" name="Price_per_night"
 							placeholder="Cena">
 					</div>
 				</div>
@@ -148,7 +127,7 @@ h1 {
 
 					</div>
 					<div class="col-4">
-						<select name="brojsoba">
+						<select name="Number_Rooms">
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
@@ -256,7 +235,9 @@ h1 {
 						</div>
 					</div>
 				</div>
-				<br> <br>
+				<br>
+
+				 <br>
 				<div class="card">
 					<div class="form-group">
 						<div class="col-2">
@@ -268,7 +249,8 @@ h1 {
 						</c:forEach>
 					</div>
 				</div>
-				<br> <br> <br>
+				<br>
+
 
 				<button type="submit value" onclick="get_selected_checkboxes_array"
 					class="btn btn-success">Submit</button>

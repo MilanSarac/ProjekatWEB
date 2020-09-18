@@ -1,4 +1,3 @@
-</body>
 </html><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>       
@@ -23,47 +22,31 @@ table, th, td {
 	<div>
 		<ul class="nav nav-pills">
 
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
 			<%
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
 
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					svih korisnika</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga i Pregled 
+					Korisnika</a></li>
+			<li class="nav-item"><a class="nav-link" href="activeApartmans.jsp">Pregled
 					Svih Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
+			<li class="nav-item"><a class="nav-link " href="updateApartman.jsp">Modifikacija
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Brisanje
+			<li class="nav-item"><a class="nav-link " href="brisanjeApartmana.jsp">Brisanje
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addAmenities.jsp">Dodavanje
+			<li class="nav-item"><a class="nav-link " href="addAmenities.jsp">Dodavanje
 					Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="updateAmenities1.jsp">Obnova Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Brisanje Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+			<li class="nav-item"><a class="nav-link active" href="updateAmenities1.jsp">Pregled i Izmene Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
 					svih Komentara</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="allReservation.jsp">Pregled
 					Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Blokiranje
+			<li class="nav-item"><a class="nav-link  " href="brisanjeKorisnikastrana.jsp">Brisanje
 					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Kreiranje
+			<li class="nav-item"><a class="nav-link " href="registration.jsp">Kreiranje
 					Domacina</a></li>
-
-			<li class="nav-item"><a class="nav-link "
-				href="allAmenities.jsp">Pregled svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="updateAmenities1.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmanView.jsp">Pregled
-					jednog Apartmanaa</a></li>
 
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
@@ -80,8 +63,6 @@ table, th, td {
 					podataka Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Dodavanje
 					Novog Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="location.jsp">Brisanje
-					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="location.jsp">Pregled
 					Rezervacija Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
@@ -110,10 +91,8 @@ table, th, td {
 		</ul>
 	</div>
 <br>
-	<div class="row justify-content-md-center">
-	
-		<div class="col-8">
-			<table style="width:100%">
+<div class="container">
+		<table class="table table-dark table-hover">
 				<tr>
 					<th>Naziv</th>
 					<th>Aktivan</th>
@@ -124,8 +103,8 @@ table, th, td {
 					<tr class="clickable-row">
 						<td> <c:out value="${post.Name_Amenities}" /> </td>
 							<td> <c:out value="${post.Active}" /> </td>
-						<td> <a href="/WebProjekat/updateAmenities.jsp?name=<c:out value="${post.ID_Amenities}" />" class="btn btn-default">Izmeni</a></td> 
-						<td> <a href="/WebProjekat/deleteAmenities.jsp?name=<c:out value="${post.ID_Amenities}" />" onclick="myFunction()" class="btn btn-default">Obrisi</a></td> 
+						<td> <a href="/WebProjekat/updateAmenities.jsp?name=<c:out value="${post.ID_Amenities}" />" class="btn btn-default"><p style="color:white;">Izmeni sadrzaj</p></a></td> 
+						<td> <a href="/WebProjekat/deleteAmenities.jsp?name=<c:out value="${post.ID_Amenities}" />" onclick="myFunction()" class="btn btn-default"><p style="color:white;">Obrisi sadrzaj</p></a></td> 
 				</c:forEach>
 			</table>
 		</div>

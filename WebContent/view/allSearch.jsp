@@ -1,24 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="javascript/jquery-3.4.1.js"></script>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<script src="javascript/jquery-3.4.1.js"></script>
-
-<title>Insert title here</title>
-
-<style>
-h1 {
-	text-align: center;
-}
-</style>
-
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<title>Pregled Sadrzaja</title>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -113,108 +107,37 @@ h1 {
 			%>
 		</ul>
 	</div>
-	<form method="post">
-<div class="container my-5">
 
-  <section>
-    
-    <div class="card mb-4">
-      
-      <div class="row">
-
-        <div class="col-md-6">
-				
-
-<img class="img-fluid rounded-left" src="https://mdbootstrap.com/img/Photos/Vertical/7.jpg" alt="project image">
-        </div>
-
-        <div class="col-md-6 p-5 align-self-center">
-        
-        <ul class="list-unstyled font-small mt-5 mb-0">
-
-          <p class="text-uppercase mb-2"><strong>Tip Apartmana</strong></p>
-          <p class="text-muted"><c:out value="${resultArray.apartmentObject.Type}" /></p>
-
-            <li>
-              <p class="text-uppercase mb-2"><strong>Broj Soba</strong></p>
-              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Number_Rooms}" /></p>
-            </li>
-
-            <li>
-              <p class="text-uppercase mb-2"><strong>Broj gostiju</strong></p>
-              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Number_Guests}" /></p>
-            </li>
-
-            <li>
-              <p class="text-uppercase mb-2"><strong>Datum pocetak</strong></p>
-              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Date_for_Rent_Start}" /></p>
-            </li>
-
-            <li>
-              <p class="text-uppercase mb-2"><strong>Datum kraj</strong></p>
-              <p class="text-muted"><c:out value="${resultArray.apartmentObject.Date_for_Rent_End}" /></p>
-            </li>
-            
-             <li>
-              <p class="text-uppercase mb-2"><strong>Domacin</strong></p>
-             <p class="text-muted"><c:out value="${resultArray.apartmentObject.Host}" /></p>
-            </li>
-
-             <li>
-              <p class="text-uppercase mb-2"><strong>Cena nocenja</strong></p>
-             <p class="text-muted"><c:out value="${resultArray.apartmentObject.Price_per_night}" /></p>
-            </li>
-
-             <li>
-              <p class="text-uppercase mb-2"><strong>Geo Sirina</strong></p>
-            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Latitude}" /></p>
-            </li>
-			 <li>
-              <p class="text-uppercase mb-2"><strong>Geo Duzina</strong></p>
-            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Longitude}" /></p>
-            </li>
-			 <li>
-              <p class="text-uppercase mb-2"><strong>Ulica</strong></p>
-            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Street}" /></p>
-            </li>
- 			<li>
-              <p class="text-uppercase mb-2"><strong>Ulicni Broj</strong></p>
-            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Streetnumber}" /></p>
-            </li>
-			 <li>
-              <p class="text-uppercase mb-2"><strong>Mesto</strong></p>
-            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Place}" /></p>
-            </li>
-			 <li>
-              <p class="text-uppercase mb-2"><strong>Postanski Broj</strong></p>
-            <p class="text-muted"><c:out value="${resultArray.apartmentObject.Zip_post}" /></p>
-            </li>
-			 <li>
-              <p class="text-uppercase mb-2"><strong>Sadrzaj</strong></p>
-            <p class="text-muted"><c:out value="${resultArray.Sadrzaj.Sadrzaj}" /></p>
-            </li>
-
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-	</form>
-
-</body>
-
-	
-	<script>
+<div class="container">
+ <table class="table table-dark table-hover">
+				<tr>
+				<th>Domacin Apartmana</th>
+					<th>Tip Apartmana</th>
+					<th>Aktivan</th>
+					<th>ID_Apartman</th>
+				</tr>
+				<c:forEach var="post" items="${allActiveApartments}" varStatus="statusInner">
+				<td> <c:out value="${post.Host}" /> </td>
+						<td> <c:out value="${post.Type}" /> </td>
+					<td> <c:out value="${post.Active}" /> </td>
+					<td> <c:out value="${post.ID_Apartman}" /> </td>
+					<td> <a href="/WebProjekat/updateApartmans.jsp?name=<c:out value="${post.Type}" />" class="btn btn-default">Izmeni</a></td> 
+						<td> <a href="/WebProjekat/deleteApartman.jsp?name=<c:out value="${post.ID_Apartman}" />" onclick="myFunction()" class="btn btn-default">Obrisi(Iskljuci)</a></td> 
+					
+					
+					</tr>
+				</c:forEach>
+			</table>
+	<script src="javascript/jquery-3.4.1.js"></script>	
+<script>
+function myFunction() {
+  alert("Uspesno ste obrisali sadrzaj");
+}
+</script>
+<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");
 		});
-	</script>
+</script>		
 </body>
 </html>

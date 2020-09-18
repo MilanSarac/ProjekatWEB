@@ -1,20 +1,18 @@
-</body>
-</html><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>       
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="javascript/jquery-3.4.1.js"></script>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<title>Insert title here</title>
-<style>
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<title>Pregled Sadrzaja</title>
 </head>
 <body>
 	<div id="navbar"></div>
@@ -23,7 +21,7 @@ table, th, td {
 	<div>
 		<ul class="nav nav-pills">
 
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga i Pregled
 					Korisnika</a></li>
 			<%
 				String roleUser = session.getAttribute("role").toString();
@@ -31,9 +29,7 @@ table, th, td {
 			%>
 
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					svih korisnika</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link active" href="allApartmans.jsp">Pregled
 					Svih Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
 					Apartmana</a></li>
@@ -109,9 +105,10 @@ table, th, td {
 			%>
 		</ul>
 	</div>
-<div class="container">
+<div class="container-fluid">
 		<table class="table table-dark table-hover">
 				<tr>
+					<th>Aktivan</th>
 					<th>Tip Apartmana</th>
 					<th>Broj Soba</th>
 					<th>Broj gostiju</th>
@@ -125,41 +122,33 @@ table, th, td {
 					<th>Broj</th>
 					<th>Mesto</th>
 					<th>Postanski broj</th>
-					<th>sadrzaj Apartmana</th>
-			</tr>
-			<c:forEach var="post" items="${resultArray}" varStatus="statusInner">
-		<!-- 	<tr class="clickable-row" data-href="/WebProjekat/apartmanView.jsp?name=<c:out value="${post.apartmentObject.Type}" />">
-				<tr class='clickable-row'>
-				<tr class='clickable-row' data-href='url://'>
-				<!--  	<td><c:out value="${post.ID_Amenities}" /></td>	-->
-				
-			
-					<td><c:out value="${post.apartmentObject.Type}" /></td>
-					<td><c:out value="${post.apartmentObject.Number_Rooms}" /></td>
-					<td><c:out value="${post.apartmentObject.Number_Guests}" /></td>
-					<td><c:out value="${post.apartmentObject.Date_for_Rent_Start}" /></td>
-					<td><c:out value="${post.apartmentObject.Date_for_Rent_End}" /></td>
-					<td><c:out value="${post.apartmentObject.Host}" /></td>
-					<td><c:out value="${post.apartmentObject.Price_per_night}" /></td>
-					<td><c:out value="${post.apartmentObject.Latitude}" /></td>
-					<td><c:out value="${post.apartmentObject.Longitude}" /></td>	
-					<td><c:out value="${post.apartmentObject.Street}" /></td>
-					<td><c:out value="${post.apartmentObject.Streetnumber}" /></td>
-					<td><c:out value="${post.apartmentObject.Place}" /></td>
-					<td><c:out value="${post.apartmentObject.Zip_post}" /></td>
-					<td><c:out value="${post.Sadrzaj.Sadrzaj}" /></td>
-				
 					
-							</tr>
+			</tr>
+			<c:forEach var="post" items="${allANApartments}" varStatus="statusInner">
+
+					<td><c:out value="${post.Active}" /></td>
+					<td><c:out value="${post.Type}" /></td>
+					<td><c:out value="${post.Number_Rooms}" /></td>
+					<td><c:out value="${post.Number_Guests}" /></td>
+					<td><c:out value="${post.Date_for_Rent_Start}" /></td>
+					<td><c:out value="${post.Date_for_Rent_End}" /></td>
+					<td><c:out value="${post.Host}" /></td>
+					<td><c:out value="${post.Price_per_night}" /></td>
+					<td><c:out value="${post.Latitude}" /></td>
+					<td><c:out value="${post.Longitude}" /></td>	
+					<td><c:out value="${post.Street}" /></td>
+					<td><c:out value="${post.Streetnumber}" /></td>
+					<td><c:out value="${post.Place}" /></td>
+					<td><c:out value="${post.Zip_post}" /></td>
+					
+</tr>
 				</c:forEach>
-			
 			</table>
-
 				</div>
-
 			</div>
-		</div>
-	</div>
+	
+	
+	
 	<script src="javascript/jquery-3.4.1.js"></script>
 	<script type="text/javascript">
 jQuery(document).ready(function($) {

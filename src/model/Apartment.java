@@ -1,16 +1,40 @@
 package model;
 
+import java.util.List;
+
 public class Apartment {
+
+	private List<String> Sadrzaji;
+	private String ID_Apartman;
+	private String Type;//Tip (ceo apartman, soba)
+	private double Number_Rooms;//Broj soba
+	private double Number_Guests;//Broj gostiju
+	private String Date_for_Rent_Start;//Datumi za izdavanje (zadaju Domacini)
+	private String Date_for_Rent_End;
+	private String Host;//Domacin
+	private double Price_per_night;//Cena po noci
+	private String Check_in_time;//Vreme za prijavu (inicijalno 2 PM)
+	private String Check_out_time;//Vreme za odjavu (inicijalno 10 AM)
+	private boolean Active;//Status (Aktivno ili Neaktivno)
+	private String Latitude;
+	private String Longitude;
+	private String Street;
+	private String Streetnumber;
+	private String Place;
+	private String Zip_post;
+	private int Positive;
+
 	
 	public Apartment() {
 		super();
 	}
-	public Apartment(String sadrzaj, String type, double number_Rooms, double number_Guests,
-			String date_for_Rent_Start, String date_for_Rent_End, String host, double price_per_night,
-			String check_in_time, String check_out_time, boolean active,String iD,String latitude, String longitude,String street,String streetnumber,String place, String zip_post) {
+	public Apartment(List<String> sadrzaji, String type, double number_Rooms, double number_Guests,
+			 String date_for_Rent_Start, String host, double price_per_night,
+			String check_in_time, String check_out_time, boolean active,String iD_Apartman,String latitude, String longitude,String street,String streetnumber,String place, String zip_post,int positive, String visitor,String date_for_Rent_End) {
 		super();
-		Sadrzaj=sadrzaj;
-		ID = iD;
+
+		Sadrzaji=sadrzaji;
+		ID_Apartman = iD_Apartman;
 		Type = type;
 		Number_Rooms = number_Rooms;
 		Number_Guests = number_Guests;
@@ -28,39 +52,21 @@ public class Apartment {
 		Streetnumber = streetnumber ;
 		Place = place;
 		Zip_post = zip_post;
-	}
-
-	private String Sadrzaj;
-	private String ID;
-	private String Type;//Tip (ceo apartman, soba)
-	private double Number_Rooms;//Broj soba
-	private double Number_Guests;//Broj gostiju
-	private String Date_for_Rent_Start;//Datumi za izdavanje (zadaju Domacini)
-	private String Date_for_Rent_End;
-	private String Host;//Domacin
-	private double Price_per_night;//Cena po noci
-	private String Check_in_time;//Vreme za prijavu (inicijalno 2 PM)
-	private String Check_out_time;//Vreme za odjavu (inicijalno 10 AM)
-	private boolean Active;//Status (Aktivno ili Neaktivno)
-	private String Latitude;
-	private String Longitude;
-	private String Street;
-	private String Streetnumber;
-	private String Place;
-	private String Zip_post;
-
+		Positive = positive;
 	
-	public String getSadrzaj() {
-		return Sadrzaj;
 	}
-	public void setSadrzaj(String sadrzaj) {
-		Sadrzaj = sadrzaj;
+	
+	public List<String> getSadrzaji() {
+		return Sadrzaji;
 	}
-	public String getID() {
-		return ID;
+	public void setSadrzaji(List<String> sadrzaji) {
+		Sadrzaji = sadrzaji;
 	}
-	public void setID(String iD) {
-		ID = iD;
+	public String getID_Apartman() {
+		return ID_Apartman;
+	}
+	public void setID_Apartman(String iD_Apartman) {
+		ID_Apartman = iD_Apartman;
 	}
 	public String getType() {
 		return Type;
@@ -71,13 +77,13 @@ public class Apartment {
 	public double getNumber_Rooms() {
 		return Number_Rooms;
 	}
-	public void setNumber_Rooms(int number_Rooms) {
+	public void setNumber_Rooms(double number_Rooms) {
 		Number_Rooms = number_Rooms;
 	}
 	public double getNumber_Guests() {
 		return Number_Guests;
 	}
-	public void setNumber_Guests(int number_Guests) {
+	public void setNumber_Guests(double number_Guests) {
 		Number_Guests = number_Guests;
 	}
 	public String getDate_for_Rent_Start() {
@@ -158,4 +164,13 @@ public class Apartment {
 	public void setZip_post(String zip_post) {
 		Zip_post = zip_post;
 	}
+	public int getPositive() {
+		return Positive;
+	
+	}
+	public void setPositive(int positive) {
+		Positive = positive;
+	}
+
+	
 }

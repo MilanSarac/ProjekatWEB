@@ -29,20 +29,23 @@
 				<ul class="navbar-nav ml-auto">
 
 					<%
+						
 						if (session.getAttribute("sesija") == null) {
+							 
 					%>
 
 					<li class="nav-item"><a class="nav-link"
-						href="registration.jsp">Registracija</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a>
+						href="registration.jsp">Registracija Novog Korisnika</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.jsp">Logovanje Korisnika</a>
 					</li>
 					<%
+						
 						} else {
 					%>
-
-					<li class="nav-item"><a class="nav-link" href="user.jsp"><%=session.getAttribute("sesija")%></a>
+			
+					<li class="nav-item"><a class="nav-link active" href="user.jsp">Ulogovani Korisnik:  <%=session.getAttribute("sesija")%></a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="view/logout.jsp">Logut</a>
+					<li class="nav-item"><a class="nav-link" href="view/logout.jsp">Odjava Korisnika</a>
 
 					</li>
 					<%

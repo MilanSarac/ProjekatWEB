@@ -42,11 +42,12 @@ public class AllAmenitiesServlet extends HttpServlet {
 				 resultArray.add(result);
 				
 		 }
-		 System.out.println(resultArray);
-		 
 		 request.setAttribute("resultArray", resultArray);
 		 rd.forward(request, response);
 	}
+	
+
+	
 	/**}
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

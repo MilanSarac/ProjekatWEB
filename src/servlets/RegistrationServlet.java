@@ -51,25 +51,41 @@ public class RegistrationServlet extends HttpServlet {
 			for(int i=0; i<allUsers.size();i++) {
 				JSONObject result=(JSONObject) allUsers.get(i);
 				String usern=(String) result.get("Username");
-				
-			if(usern.equals(Username)) {
-				response.sendRedirect("/WebProjekat/registration.jsp");
-				
-			}else {
-				User user= new User(Username,Name,SureName,Male,Female, Password,PasswordControl,"Gost"); 
-				
+				String usernR=(String) result.get("role");
+				System.out.println("1. "+usern+ " 2 "+ Username);
+				if(usern.equals(Username)) {
+					response.sendRedirect("/WebProjekat/registration.jsp");	
+					return;
+				}
+			}
+				HttpSession sesion=request.getSession();
+				String role = (String) sesion.getAttribute("role");
+				User user;
+				if(role != null && role.equals("Admin")) {
+					 user= new User(Username,Name,SureName,Male,Female, Password,PasswordControl,"Domacin",true);
+					 UserRepository us= new UserRepository();
+						us.addUser(user);
+						response.sendRedirect("/WebProjekat/user.jsp");
+				}else if(role == null){
+					user= new User(Username,Name,SureName,Male,Female, Password,PasswordControl,"Gost",true);
 					UserRepository us= new UserRepository();
 					us.addUser(user);
-					HttpSession sesion=request.getSession();
+					sesion=request.getSession();
 					sesion.setAttribute("sesija", Username);
 
 					sesion.setAttribute("role","Gost");
 					response.sendRedirect("/WebProjekat/user.jsp");
+				}
+				else {
+					
+					response.sendRedirect("/WebProjekat/403.jsp");
+				}
+					
 					return;
-			}
+			
 	}
 		
 		
 		
 	}
-}
+

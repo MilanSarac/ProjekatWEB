@@ -5,16 +5,16 @@ public class Comment {
 	private String ReferedToApartment;
 	private String Text;
 	private String Rating;
+	private boolean Active;
 	
-	public Comment (String sender,String referedToApartment,
-			String rating,String text )
+	public Comment (String sender,String referedToApartment,String rating,String text,boolean active )
 	{
 		super();
 		Sender=sender;
 		ReferedToApartment=referedToApartment;
 		Text=text;
 		Rating=rating ;
-		
+		Active=active;
 }
 
 	public String getSender() {
@@ -48,5 +48,11 @@ public class Comment {
 	public void setRating(String rating) {
 		Rating = rating;
 	}
-	
+	public boolean isActive() {
+		return Active;
+	}
+
+	public void setActive(boolean active) {
+		Active = active;
+	}
 }

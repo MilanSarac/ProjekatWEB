@@ -55,14 +55,7 @@ public class AddApartmanAmenitiesServlet extends HttpServlet {
     		amr.addAmenities(amenities);
         }
 		
-		/*String Name_Amenities = request.getParameter("Name_Amenities");
-		String ID_Apartmans = request.getParameter("ID_Apartmans");
-		AmenitiesRepository amr = new AmenitiesRepository();
-		ApartmentRepository ar = new ApartmentRepository();
-		
-		Amenities amenities = new Amenities(uuid1.toString(), Name_Amenities, true, ID_Apartmans);
-		amr.addAmenities(amenities);
-		*/
+
 		response.sendRedirect("/WebProjekat/updateAmenities1.jsp");
 	}
 

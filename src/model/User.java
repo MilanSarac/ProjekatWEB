@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class User {
 
 	private String Username;
@@ -7,15 +9,21 @@ public class User {
 	private String Name;
 	private String SureName;
 	private String Role;
-	private String For_Rent;
+	//private List<String> For_Rent; //Apartmani za izdavanje(ako je korisnik Domacin)
+	private List<String> Rented; //Iznajmljeni apartmani (ako je korisnik Gost)
+	private List<String> List_Reservation;//Lista rezervacija (ako je korisnik Gost)
+	/*private String For_Rent;
 	private String Rented;
-	private String List_Reservation;
+	private String List_Reservation;*/
 	private String PasswordControl;
 	private String Male;
 	private String Female;
-
+	private boolean Active;
 	public  User(String username, String name, String sureName,String male,String female, 
-			String password,String passwordControl,String role){
+			String password,String passwordControl,String role,boolean active){
+		
+		
+		
 		super();
 		Username= username;
 		Name=name;
@@ -25,6 +33,8 @@ public class User {
 		Password=password;
 		PasswordControl=passwordControl;
 		Role=role;
+		Active=active;
+		
 		
 	}
 	public String getMale() {
@@ -82,7 +92,32 @@ public class User {
 	public void setRole(String role) {
 		Role = role;
 	}
-	public String getFor_Rent() {
+	public boolean isActive() {
+		return Active;
+	}
+
+	public void setActive(boolean active) {
+		Active = active;
+	}
+	/*public List<String> getFor_Rent() {
+		return For_Rent;
+	}
+	public void setFor_Rent(List<String> for_Rent) {
+		For_Rent = for_Rent;
+	}*/
+	public List<String> getRented() {
+		return Rented;
+	}
+	public void setRented(List<String> rented) {
+		Rented = rented;
+	}
+	public List<String> getList_Reservation() {
+		return List_Reservation;
+	}
+	public void setList_Reservation(List<String> list_Reservation) {
+		List_Reservation = list_Reservation;
+	}
+/*	public String getFor_Rent() {
 		return For_Rent;
 	}
 	public void setFor_Rent(String for_Rent) {
@@ -99,6 +134,6 @@ public class User {
 	}
 	public void setList_Reservation(String list_Reservation) {
 		List_Reservation = list_Reservation;
-	}
+	}*/
 	
 }

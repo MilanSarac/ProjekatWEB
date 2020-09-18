@@ -25,12 +25,10 @@ public class CommentRepository {
 		commentObject.put("ReferedToApartment", comment.getReferedToApartment());
 		commentObject.put("Rating", comment.getRating());
 		commentObject.put("Text", comment.getText());
+		commentObject.put("Active",comment.isActive());
 		allComments.add(commentObject);
 		System.out.println(commentObject);
-	
-		
-		
-		
+
 		FileWriter file1= new FileWriter(file);
 		file1.write(allComments.toJSONString());
 		file1.flush();
@@ -50,5 +48,20 @@ public class CommentRepository {
 		}
 		return jsonArray;
 	}
-	
+	public JSONArray ActiveComment() throws IOException {
+		CommentRepository  cr= new CommentRepository();
+			
+			JSONArray allComment = new JSONArray();
+			JSONArray allActiveComment = new JSONArray(); 
+			allComment = (JSONArray) cr.GetComment();
+			for (int i=0;i<allComment.size();i++) {
+				JSONObject result = (JSONObject) allComment.get(i);
+				boolean active =  (boolean) result.get("Active");
+				if (active==true) {
+					
+					allActiveComment.add(result);
+				}
+			}
+			return allActiveComment;
+	}
 }

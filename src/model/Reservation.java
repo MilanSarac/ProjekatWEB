@@ -4,10 +4,11 @@ import java.util.Date;
 
 public class Reservation {
 
-	private String IsBooked;
-	private Date OrderDate;
-	private int NumberOfNights;
-	private int TotalPrice;
+	private String ID_Apartman;
+	private String OrderDate;
+	private long NumberOfNights;
+	private double TotalPrice;
+	private String Status;
 	private String MessageReservation;
 	private String Guest;
 	private String CreatedReservation;
@@ -17,134 +18,111 @@ public class Reservation {
 	private String CompletedReservation;
 
 
-public Reservation(String isBooked, Date orderDate,int numberOfNights, int totalPrice, String messageReservation,String guest,
-		String createdReservation,String rejectedReservation,String withdrawalReservation,String acceptedReservation,String completedReservation) {
-	
+public Reservation(String orderDate, long numberOfNights,String iD_Apartman, double totalPrice,String guest,String messageReservation,String status) {
 	super ();
-	
-	IsBooked=isBooked;
 	OrderDate = orderDate;
 	NumberOfNights = numberOfNights;
+	ID_Apartman=iD_Apartman;
 	TotalPrice = totalPrice;
-	MessageReservation = messageReservation;
 	Guest = guest;
-	CreatedReservation = createdReservation;
-	RejectedReservation = rejectedReservation; 
-	WithdrawalReservation = withdrawalReservation;
-	AcceptedReservation = acceptedReservation;
-	CompletedReservation = completedReservation;
-
-
-
-}
-
-
-public String getIsBooked() {
-	return IsBooked;
-}
-
-
-public void setIsBooked(String isBooked) {
-	IsBooked = isBooked;
-}
-
-
-public Date getOrderDate() {
-	return OrderDate;
-}
-
-
-public void setOrderDate(Date orderDate) {
-	OrderDate = orderDate;
-}
-
-
-public int getNumberOfNights() {
-	return NumberOfNights;
-}
-
-
-public void setNumberOfNights(int numberOfNights) {
-	NumberOfNights = numberOfNights;
-}
-
-
-public int getTotalPrice() {
-	return TotalPrice;
-}
-
-
-public void setTotalPrice(int totalPrice) {
-	TotalPrice = totalPrice;
-}
-
-
-public String getMessageReservation() {
-	return MessageReservation;
-}
-
-
-public void setMessageReservation(String messageReservation) {
 	MessageReservation = messageReservation;
+	Status=status;
 }
 
+	public String getID_Apartman() {
+		return ID_Apartman;
+	}
 
-public String getGuest() {
-	return Guest;
-}
+	public void setID_Apartman(String iD_Apartman) {
+		ID_Apartman = iD_Apartman;
+	}
 
+	public double getTotalPrice() {
+		return TotalPrice;
+	}
 
-public void setGuest(String guest) {
-	Guest = guest;
-}
+	public String getOrderDate() {
+		return OrderDate;
+	}
 
+	public void setOrderDate(String orderDate) {
+		OrderDate = orderDate;
+	}
 
-public String getCreatedReservation() {
-	return CreatedReservation;
-}
+	public long getNumberOfNights() {
+		return NumberOfNights;
+	}
 
+	public void setNumberOfNights(long numberOfNights) {
+		NumberOfNights = numberOfNights;
+	}
 
-public void setCreatedReservation(String createdReservation) {
-	CreatedReservation = createdReservation;
-}
+	public String getMessageReservation() {
+		return MessageReservation;
+	}
 
+	public void setMessageReservation(String messageReservation) {
+		MessageReservation = messageReservation;
+	}
 
-public String getRejectedReservation() {
-	return RejectedReservation;
-}
+	public String getGuest() {
+		return Guest;
+	}
 
+	public void setGuest(String guest) {
+		Guest = guest;
+	}
 
-public void setRejectedReservation(String rejectedReservation) {
-	RejectedReservation = rejectedReservation;
-}
+	public String getCreatedReservation() {
+		return CreatedReservation;
+	}
 
+	public void setCreatedReservation(String createdReservation) {
+		CreatedReservation = createdReservation;
+	}
 
-public String getWithdrawalReservation() {
-	return WithdrawalReservation;
-}
+	public String getRejectedReservation() {
+		return RejectedReservation;
+	}
 
+	public void setRejectedReservation(String rejectedReservation) {
+		RejectedReservation = rejectedReservation;
+	}
 
-public void setWithdrawalReservation(String withdrawalReservation) {
-	WithdrawalReservation = withdrawalReservation;
-}
+	public String getWithdrawalReservation() {
+		return WithdrawalReservation;
+	}
 
+	public void setWithdrawalReservation(String withdrawalReservation) {
+		WithdrawalReservation = withdrawalReservation;
+	}
 
-public String getAcceptedReservation() {
-	return AcceptedReservation;
-}
+	public String getAcceptedReservation() {
+		return AcceptedReservation;
+	}
 
+	public void setAcceptedReservation(String acceptedReservation) {
+		AcceptedReservation = acceptedReservation;
+	}
 
-public void setAcceptedReservation(String acceptedReservation) {
-	AcceptedReservation = acceptedReservation;
-}
+	public String getCompletedReservation() {
+		return CompletedReservation;
+	}
 
+	public void setCompletedReservation(String completedReservation) {
+		CompletedReservation = completedReservation;
+	}
 
-public String getCompletedReservation() {
-	return CompletedReservation;
-}
+	public String getStatus() {
+		return Status;
+	}
 
+	public void setStatus(String status) {
+		Status = status;
+	}
 
-public void setCompletedReservation(String completedReservation) {
-	CompletedReservation = completedReservation;
-}
+	public void setTotalPrice(double totalPrice) {
+		TotalPrice = totalPrice;
+	}
+
 }

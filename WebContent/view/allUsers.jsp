@@ -22,54 +22,71 @@
 	<div>
 		<ul class="nav nav-pills">
 
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
-			<%
+	<%
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
 
+
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					svih korisnika</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link active" href="allUsers.jsp">Pretraga i Pregled 
+					Korisnika</a></li>
+			<li class="nav-item"><a class="nav-link" href="activeApartmans.jsp">Pregled
 					Svih Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
+			<li class="nav-item"><a class="nav-link" href="updateApartman.jsp">Modifikacija
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Brisanje
+			<li class="nav-item"><a class="nav-link" href="brisanjeApartmana.jsp">Brisanje
 					Apartmana</a></li>
 			<li class="nav-item"><a class="nav-link" href="addAmenities.jsp">Dodavanje
 					Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="updateAmenities1.jsp">Obnova Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Brisanje Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="updateAmenities1.jsp">Pregled i Izmene Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
 					svih Komentara</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="allReservation.jsp">Pregled
 					Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Blokiranje
+			<li class="nav-item"><a class="nav-link  " href="brisanjeKorisnikastrana.jsp">Brisanje
 					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Kreiranje
+			<li class="nav-item"><a class="nav-link " href="registration.jsp">Kreiranje
 					Domacina</a></li>
 
-			<li class="nav-item"><a class="nav-link "
-				href="allAmenities.jsp">Pregled svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="updateAmenities1.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmanView.jsp">Pregled
-					jednog Apartmanaa</a></li>
+					
+					
+					
+					
+			
+	</div>
+	<BR>
+	<div id="navbar"></div>
+	<div class="container-fluid">
+		<div id="content">
+			<form action="/WebProjekat/searchUser.jsp">
+							<div class="row justify-content-md-center">
+
+				<div class="container-fluid">
+					<div id="content">
+						<div class="input-group mb-3">
+							<div class="container-fluid" style="background-color: #f0f5ff;">
+								<input type="text" class="form-control" name="Name"
+									placeholder="Name">
+							</div>
+							<div class="container-fluid" style="background-color: #f0f5ff;">
+								<input type="text" class="form-control" name="SureName"
+									placeholder="SureName">
+							</div>
+							<div class="container-fluid" style="background-color: #f0f5ff;">
+								<input type="submit" value="Pretraga korisnika"
+									class="btn-outline-success btn-sm btn-block" />
+							</div>
+						</div>
+					</div>
+				</div>			
 
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
 			%>
 			<BR>
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+			<li class="nav-item"><a class="nav-link active" href="allUsers.jsp">Pregled
 					svih korisnika sa rezervacijom</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="aktivniApartmani.jsp">Aktivni apartmani</a></li>
@@ -107,10 +124,7 @@
 				}
 			%>
 		</ul>
-	</div>
-	<BR>
-
-	<div class="container">
+	<div class="container-fluid">
 		<table class="table table-dark table-hover">
 			<tr>
 				<th>Ime</th>
@@ -119,7 +133,7 @@
 				<th>Pol</th>
 				<th>Uloga</th>
 				<th>Sifra</th>
-
+				<th>Aktivan</th>
 			</tr>
 			<c:forEach var="post" items="${resultArray}" varStatus="statusInner">
 
@@ -131,7 +145,8 @@
 					<td><c:out value="${post.Username}" /></td>
 					<td><c:out value="${post.Male}" /></td>
 					<td><c:out value="${post.Role}" /></td>
-					
+					<td><c:out value="${post.Password}" /></td>
+					<td><c:out value="${post.Active}" /></td>
 
 				</tr>
 			</c:forEach>
@@ -139,21 +154,6 @@
 
 	</div>
 	</div>
-
-	
-
-		<script>
-			$(function() {
-				$("#navbar").load("view/navbar.jsp");
-			});
-		</script>
-</body>
-</html>
-
-
-
-
-
 
 
 <script src="javascript/jquery-3.4.1.js"></script>

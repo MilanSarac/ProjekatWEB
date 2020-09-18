@@ -26,48 +26,31 @@ h1 {
 	<div>
 		<ul class="nav nav-pills">
 
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
 			<%
 				String roleUser = session.getAttribute("role").toString();
 				if (roleUser.equals("Admin")) {
 			%>
 
 			<BR>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
-					svih korisnika</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga i Pregled 
+					Korisnika</a></li>
+			<li class="nav-item"><a class="nav-link" href="activeApartmans.jsp">Pregled
 					Svih Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Modifikacija
+			<li class="nav-item"><a class="nav-link " href="updateApartman.jsp">Modifikacija
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addApartmans.jsp">Brisanje
+			<li class="nav-item"><a class="nav-link " href="brisanjeApartmana.jsp">Brisanje
 					Apartmana</a></li>
-			<li class="nav-item"><a class="nav-link" href="addAmenities.jsp">Dodavanje
+			<li class="nav-item"><a class="nav-link active" href="addAmenities.jsp">Dodavanje
 					Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="updateAmenities1.jsp">Obnova Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Brisanje Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="allUsers.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="updateAmenities1.jsp">Pregled i Izmene Sadrzaja</a></li>
+			<li class="nav-item"><a class="nav-link" href="comment.jsp">Pregled
 					svih Komentara</a></li>
-			<li class="nav-item"><a class="nav-link" href="allApartmans.jsp">Pregled
+			<li class="nav-item"><a class="nav-link" href="allReservation.jsp">Pregled
 					Rezervacija</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Blokiranje
+			<li class="nav-item"><a class="nav-link  " href="brisanjeKorisnikastrana.jsp">Brisanje
 					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Pretraga
-					Korisnika</a></li>
-			<li class="nav-item"><a class="nav-link " href="allUsers.jsp">Kreiranje
+			<li class="nav-item"><a class="nav-link " href="registration.jsp">Kreiranje
 					Domacina</a></li>
-
-			<li class="nav-item"><a class="nav-link "
-				href="allAmenities.jsp">Pregled svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="updateAmenities1.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link "
-				href="allApartmans.jsp">Izmena svih Sadrzaja</a></li>
-			<li class="nav-item"><a class="nav-link" href="apartmanView.jsp">Pregled
-					jednog Apartmanaa</a></li>
-
 			<%
 				} else if (session.getAttribute("role").toString().equals("Domacin")) {
 			%>
@@ -127,12 +110,12 @@ h1 {
 
 			<label for = "Name_Amenities">Naziv Sadrzaja</label>
 			<input type="text" class ="form-control" name ="Name_Amenities"
-			placeholder=" Enter Name_Amenities" >
+			placeholder=" Unestite Naziv novog Sadrzaja" >
 		</div>
 	
 	
-			<button type="submit value" class="btn btn-success">Submit</button>
-	<a href="/WebProjekat id="cancel" name="cancel" class="btn btn-secondary">Cancel</a>
+			<button type="submit value" onclick="myFunctionA()" class="btn btn-success">Potvrditi</button>
+            <a href="/WebProjekat/" id="cancel" name="cancel" onclick="myFunction1()" class="btn btn-secondary">Odustati</a>
 		</div>
 	</form>  
 </div>
@@ -140,7 +123,13 @@ h1 {
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
-
+		
+		
+		<script>
+		function myFunctionA() {
+			alert("Uspesno ste dodali sadrzaj ");
+		}
+	</script>
 	<script>
 		$(function() {
 			$("#navbar").load("view/navbar.jsp");

@@ -29,17 +29,29 @@ h1 {
 		<div class="col-8 offset-2">
     	<form method="post">
     	<div class="form-group">
-    	 <label for="Username">Username</label>
+    	 <label for="Username">Korisnicko ime</label>
     	  <input type="text" class=form-control name="Username"
-    	   placeholder="Enter Username"  required>
+    	   placeholder="Unesite Korisnicko ime"  required>
 	 </div>
 	     	<div class="form-group">
-    	 <label for="Login-password">Password</label>
+    	 <label for="Login-password">Lozinka</label>
     	  <input type="password" class=form-control name="Password"
-    	   placeholder="Enter Password" required>
+    	   placeholder="Unesite Lozinku" required>
 	 </div>
      <button type="submit" class="btn btn-success">Submit</button>
 	<a href="/WebProjekat/" id="cancel" name="cancel" class="btn btn-secondary">Cancel</a>
 		</div>
 	</form>  
 </div>
+
+<%
+   			if(null!=request.getAttribute("errorMessage"))
+            {%>
+		     <script type="text/javascript">
+                    window.onload = function () {
+                        /**/
+                        alert("Potrebno je da unesete ispravne podatke!!!");
+                    /**/
+                };
+            </script>
+		<%  }%>
